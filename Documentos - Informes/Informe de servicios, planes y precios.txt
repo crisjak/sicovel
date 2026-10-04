@@ -1,0 +1,405 @@
+Informe base de servicios, planes y precios de SICOVE
+1. Objetivo de este informe
+
+Este documento define la propuesta comercial inicial de SICOVE respecto a sus servicios digitales, con foco en una oferta clara, competitiva y fácil de vender en la etapa actual del emprendimiento.
+
+El objetivo no es construir una estructura excesivamente compleja, sino una oferta comercial que permita:
+
+captar primeros clientes
+competir con otros emprendimientos y agencias pequeñas
+transmitir profesionalismo
+mantener precios accesibles
+dejar espacio para evolucionar a futuro
+
+En esta etapa, SICOVE no incluirá extras o complementos opcionales dentro de la oferta visible principal. Esos servicios quedarán para una fase posterior del proyecto, cuando la marca esté más consolidada y el sistema comercial sea más robusto.
+
+2. Enfoque comercial general de SICOVE
+
+SICOVE se posiciona como una propuesta de desarrollo web moderno orientada a emprendedores, profesionales y pymes que quieren una solución más seria, más rápida y más actual que las alternativas genéricas basadas en WordPress o plantillas rígidas.
+
+La estrategia comercial inicial estará basada en tres principios:
+
+2.1 Simplicidad
+
+La oferta debe ser fácil de entender. Mientras menos fricción tenga el cliente para elegir, mejor será la conversión.
+
+2.2 Valor percibido alto con precio accesible
+
+SICOVE debe ofrecer una imagen tecnológica moderna, pero con precios competitivos para facilitar la captación de clientes en la primera etapa.
+
+2.3 Escalabilidad futura
+
+Aunque ahora la oferta será simple, su estructura debe permitir crecer después con:
+
+complementos
+módulos
+automatizaciones
+servicios premium
+mantenciones más avanzadas
+3. Estructura oficial de servicios SICOVE
+
+SICOVE ofrecerá inicialmente tres líneas de servicio:
+
+Servicio	Modelo comercial inicial
+Landing Page	1 sola oferta, pago único
+Web Informativa	3 planes: Basic, Pro y Premium
+E-commerce	servicio escalonado, enfocado en implementación más robusta
+4. Servicio 1: Landing Page Profesional
+4.1 Definición
+
+La Landing Page es un servicio orientado a clientes que necesitan una presencia digital simple, directa y enfocada en conversión.
+
+Está pensada para:
+
+emprendedores
+profesionales independientes
+negocios pequeños
+campañas de lanzamiento
+validación de servicios
+captación de contactos
+
+La lógica comercial elegida para este servicio es una sola oferta de pago único, ya que una landing page es un producto de complejidad baja y no tiene mucho sentido dividirlo en múltiples planes visibles al inicio.
+
+4.2 Nombre comercial sugerido
+
+Landing Page Profesional
+
+4.3 Qué ofrece este servicio
+
+Incluye una página única moderna, clara y responsive, diseñada para presentar una propuesta de valor y generar contacto o conversión.
+
+4.4 Qué incluye
+diseño moderno y responsive
+1 página tipo landing
+hasta 5 o 6 secciones
+formulario de contacto
+botón directo a WhatsApp
+integración con redes sociales
+SEO básico on-page
+optimización de carga
+publicación del sitio
+soporte inicial acotado post-entrega
+4.5 Qué no incluye
+tienda online
+blog
+sistema de usuarios
+integraciones complejas
+panel administrativo avanzado
+automatizaciones personalizadas
+cambios continuos posteriores a la entrega
+4.6 Modalidad comercial
+
+Pago único
+
+4.7 Precio sugerido
+
+Desde $149.990 CLP
+
+4.8 Posicionamiento comercial
+
+Este servicio debe presentarse como una solución simple, rápida y profesional para clientes que quieren “salir al aire” con una web clara y bien presentada, sin entrar aún en estructuras más complejas.
+
+5. Servicio 2: Web Informativa
+5.1 Definición
+
+La Web Informativa es el servicio principal para negocios que necesitan una presencia corporativa más completa que una landing page.
+
+Está orientada a:
+
+pymes
+empresas locales
+profesionales con varios servicios
+marcas en crecimiento
+negocios que necesitan una imagen más sólida
+
+A diferencia de la landing, aquí sí tiene sentido trabajar con planes, porque la complejidad puede variar de forma real según:
+
+cantidad de páginas
+estructura del contenido
+blog o CMS
+nivel de personalización
+formularios y secciones adicionales
+preparación para crecimiento
+5.2 Estructura comercial elegida
+Basic
+Pro
+Premium
+5.3 Objetivo de los planes
+
+Los tres planes permiten segmentar mejor a los clientes según tamaño, necesidad y presupuesto, sin tener que recurrir a cotizaciones totalmente abiertas desde el inicio.
+
+6. Web Informativa Basic
+6.1 Descripción
+
+El plan Basic está pensado para negocios que necesitan una presencia digital profesional básica, clara y bien presentada, sin una estructura muy extensa.
+
+Es ideal para clientes que quieren mostrar:
+
+quiénes son
+qué servicios ofrecen
+cómo contactarlos
+6.2 Qué incluye
+diseño responsive
+hasta 5 páginas
+página de inicio
+página de servicios
+página sobre nosotros
+página de contacto
+formulario de contacto
+botón WhatsApp
+integración con redes sociales
+SEO básico
+optimización de carga
+publicación del sitio
+6.3 Qué no incluye
+blog o sección de noticias avanzada
+funcionalidades a medida
+integraciones complejas
+e-commerce
+sistemas de reservas avanzados
+automatizaciones
+estructura corporativa grande
+6.4 Ideal para
+emprendedores en crecimiento
+negocios locales
+pymes pequeñas
+servicios profesionales
+empresas que quieren una web institucional simple
+6.5 Precio sugerido
+
+$249.990 CLP
+
+7. Web Informativa Pro
+7.1 Descripción
+
+El plan Pro está pensado para empresas que necesitan una web más completa, con mejor estructura de contenido, más páginas y una presencia digital más sólida.
+
+Este plan debería ser el más recomendado dentro de SICOVE, porque ofrece un equilibrio natural entre precio, presentación y valor entregado.
+
+7.2 Qué incluye
+todo lo del plan Basic
+hasta 8 o 10 páginas
+mejor estructura de navegación
+diseño más personalizado
+múltiples bloques o secciones de servicios
+formulario de contacto más robusto
+secciones de testimonios, preguntas frecuentes o portafolio si aplica
+base preparada para crecimiento
+mejor ordenamiento del contenido
+SEO básico mejor trabajado
+7.3 Qué no incluye
+e-commerce
+automatizaciones complejas
+sistemas internos
+reservas avanzadas a medida
+integraciones empresariales complejas
+7.4 Ideal para
+pymes establecidas
+clínicas, centros, estudios o consultoras
+marcas que quieren proyectar más confianza
+negocios con varios servicios
+empresas que quieren una estructura más seria y completa
+7.5 Precio sugerido
+
+$449.990 CLP
+
+7.6 Posicionamiento
+
+Este debe ser el plan con mejor relación valor/precio y el que más conviene empujar comercialmente.
+
+8. Web Informativa Premium
+8.1 Descripción
+
+El plan Premium está pensado para clientes que necesitan una presencia corporativa más amplia, más personalizada y con una estructura de contenido más robusta.
+
+No se trata de un sistema complejo ni de software a medida, pero sí de una web informativa con un nivel superior de desarrollo, presentación y profundidad.
+
+8.2 Qué incluye
+todo lo del plan Pro
+hasta 12 o 15 páginas
+mayor nivel de personalización visual
+estructura más robusta de contenidos
+mejor preparación para crecimiento futuro
+más secciones especializadas
+mejor organización de servicios, información institucional y contacto
+mayor trabajo de presentación de marca
+8.3 Qué no incluye
+tienda online
+sistemas de gestión
+módulos internos complejos
+automatizaciones avanzadas
+software a medida
+8.4 Ideal para
+empresas con más contenido institucional
+marcas que quieren una web más completa
+negocios con mayor volumen de información
+empresas que quieren una imagen más consolidada
+8.5 Precio sugerido
+
+$699.990 CLP
+
+9. Servicio 3: E-commerce
+9.1 Definición
+
+El servicio E-commerce está orientado a negocios que quieren vender productos por internet mediante una tienda online moderna, clara y funcional.
+
+Este servicio requiere una estructura distinta a la web informativa porque incorpora:
+
+catálogo de productos
+carrito de compra
+checkout
+pasarela de pago
+gestión de productos
+mayor complejidad operativa
+9.2 Enfoque comercial inicial
+
+Aunque aún puede ajustarse después, la propuesta base debería considerar una estructura escalonada, ya que en e-commerce sí existe una diferencia real entre tiendas más básicas y tiendas más completas.
+
+Para dejar este informe bien ordenado, propongo fijar desde ya dos planes iniciales.
+
+10. E-commerce Basic
+10.1 Descripción
+
+Plan orientado a negocios que quieren comenzar a vender online con una tienda simple, profesional y bien presentada.
+
+10.2 Qué incluye
+diseño responsive
+catálogo básico de productos
+carrito de compra
+checkout
+integración de pasarela de pago
+hasta 20 productos cargados
+categorías básicas
+formulario o contacto
+botón WhatsApp
+SEO básico
+optimización de velocidad
+publicación del sitio
+10.3 Qué no incluye
+integraciones empresariales complejas
+ERP
+automatizaciones avanzadas
+marketplace
+múltiples sucursales
+funcionalidades altamente personalizadas
+10.4 Ideal para
+emprendimientos que venden pocos productos
+tiendas pequeñas
+negocios que recién comienzan a vender online
+10.5 Precio sugerido
+
+$449.990 CLP
+
+11. E-commerce Pro
+11.1 Descripción
+
+Plan orientado a negocios que necesitan una tienda online más completa, con mejor estructura de catálogo y una base más preparada para crecer.
+
+11.2 Qué incluye
+todo lo del plan Basic
+hasta 80 productos cargados
+mejor organización por categorías
+banners o bloques promocionales
+cupones o descuentos básicos
+estructura visual más robusta
+mejor base para escalabilidad
+preparación más sólida para crecimiento de catálogo
+11.3 Qué no incluye
+ERP avanzado
+automatizaciones empresariales complejas
+integraciones logísticas avanzadas
+marketplace
+sistemas internos a medida
+11.4 Ideal para
+tiendas en crecimiento
+negocios con mayor variedad de productos
+marcas que quieren una tienda más completa
+11.5 Precio sugerido
+
+$699.990 CLP
+
+12. Tabla general de servicios y precios SICOVE
+Servicio	Plan / modalidad	Precio sugerido
+Landing Page	Landing Page Profesional	$149.990 CLP
+Web Informativa	Basic	$249.990 CLP
+Web Informativa	Pro	$449.990 CLP
+Web Informativa	Premium	$699.990 CLP
+E-commerce	Basic	$449.990 CLP
+E-commerce	Pro	$699.990 CLP
+13. Lógica estratégica detrás de estos precios
+
+La estructura de precios busca equilibrar tres factores:
+
+13.1 Competitividad
+
+SICOVE está en etapa inicial y necesita entrar al mercado con precios accesibles para competir y construir portafolio.
+
+13.2 Seriedad
+
+Los precios no deben ser tan bajos que resten credibilidad. Deben comunicar valor, aunque todavía se trate de una fase de entrada al mercado.
+
+13.3 Escalabilidad
+
+Los precios permiten crecer después y reajustar el posicionamiento cuando SICOVE tenga:
+
+más experiencia
+más casos de éxito
+mayor formalización
+mejor estructura comercial
+marca más validada
+14. Qué no se ofrecerá por ahora
+
+En esta etapa inicial, SICOVE no incluirá extras como parte pública de la oferta principal.
+
+Se dejan fuera por ahora:
+
+chatbot
+blog como adicional independiente
+multi idioma
+automatizaciones especiales
+reservas avanzadas
+copywriting como servicio aparte
+SEO avanzado como add-on
+páginas extra cobradas por separado
+complementos personalizados visibles
+
+La razón es mantener una oferta:
+
+limpia
+clara
+fácil de entender
+fácil de vender
+fácil de producir
+
+Estos elementos podrán incorporarse más adelante en futuras versiones del catálogo comercial de SICOVE.
+
+15. Recomendación comercial de presentación
+
+La forma de presentar esta oferta en el sitio o en una propuesta comercial debería ser:
+
+Landing Page
+
+Como servicio individual, directo y simple.
+
+Web Informativa
+
+Como servicio principal con 3 planes bien diferenciados.
+
+E-commerce
+
+Como solución orientada a venta online, con enfoque más robusto.
+
+Además, conviene que el plan Pro de Web Informativa se presente visualmente como el más recomendado, ya que probablemente será el punto de mejor equilibrio para la mayoría de los clientes.
+
+16. Conclusión final
+
+La estructura inicial recomendada para SICOVE queda así:
+
+Landing Page Profesional como servicio único y de pago simple
+Web Informativa como línea principal con planes Basic, Pro y Premium
+E-commerce como solución escalonada para venta online
+sin extras públicos por ahora
+precios accesibles pero serios
+oferta clara, profesional y fácil de vender
+
+Esta estrategia permite que SICOVE salga al mercado con una propuesta ordenada, entendible y alineada con su etapa actual, sin sobrecargar al cliente con demasiadas opciones ni complejidades innecesarias.

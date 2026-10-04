@@ -1,0 +1,434 @@
+Informe resumen de decisiones comerciales y de frontend de SICOVE
+1. Objetivo de esta conversación
+
+El foco principal de esta conversación fue definir la estructura comercial inicial de SICOVE, especialmente en relación con:
+
+servicios principales
+planes
+precios en CLP
+qué ofrecer realmente en cada servicio
+cómo estructurarlo para vender mejor
+cómo reflejarlo en el frontend del sitio
+cómo prepararlo para que en el futuro sea editable desde el panel admin y conectable al backend
+
+También se evaluó cómo se mueve el mercado chileno usando investigación externa a través de Perplexity, con el fin de no inventar una oferta al azar, sino tomar decisiones más alineadas con la realidad.
+
+2. Contexto estratégico que se tuvo en cuenta
+
+Durante toda la conversación se consideró que SICOVE está en una etapa inicial y que eso afecta directamente la estrategia comercial.
+
+Factores importantes considerados
+SICOVE está recién comenzando como emprendimiento
+la prioridad actual es captar clientes y construir portafolio
+los precios deben ser competitivos
+todavía no hay RUT empresa formalizado para facturación, lo cual puede afectar percepción de confianza
+por lo mismo, la oferta debe ser clara, seria y fácil de entender
+no conviene sobrecomplicar la propuesta comercial en esta etapa
+
+Con esto, se concluyó que SICOVE no debe partir con una oferta excesivamente amplia o compleja, sino con una estructura comercial simple, creíble y ordenada.
+
+3. Investigación de mercado realizada con Perplexity
+
+Se usó Perplexity varias veces para investigar el mercado real chileno y latinoamericano en torno a:
+
+precios de landing pages
+precios de webs informativas
+precios de e-commerce
+si conviene usar planes o no
+cómo funciona el pago único
+cómo funciona el plan mensual
+si agencias venden servicios adicionales o extras
+Principales conclusiones del mercado
+Landing Page
+la gran mayoría de agencias la vende como precio único
+pocas usan planes
+la mensualidad en landing page es muy rara
+3 planes para landing page no suelen justificarse
+la landing se percibe como un producto simple y directo
+Web Informativa
+aquí sí aparecen más agencias usando planes
+la diferencia entre niveles suele estar en:
+cantidad de páginas
+CMS/blog
+nivel de personalización
+SEO
+estructura general
+sí hay base real para usar planes tipo Basic / Pro / Premium
+E-commerce
+normalmente requiere escalamiento real
+tiene sentido usar más de un nivel
+la diferencia entre planes suele estar en:
+cantidad de productos
+estructura del catálogo
+promociones
+complejidad general
+Modelo mensual
+en muchas agencias pequeñas y medianas el desarrollo se vende con pago único
+la mensualidad suele ir asociada a mantención, hosting o servicios continuos
+cuando la mensualidad se vende como producto principal, muchas veces se percibe como arriendo o lock-in
+eso puede generar fricción o desconfianza
+Extras
+sí existen en el mercado
+ayudan a subir ticket
+pero mostrar demasiados confunde a pymes
+finalmente se decidió no incluir extras ahora en la oferta principal de SICOVE
+4. Decisiones comerciales finales tomadas
+
+Después de revisar el mercado, discutir opciones y comparar modelos, se cerró una estructura oficial inicial para SICOVE.
+
+4.1 Landing Page
+
+Se decidió que:
+
+NO tendrá 3 planes
+NO se manejará como plan mensual
+se ofrecerá como un solo servicio simple
+se venderá como pago único
+Nombre definido
+
+Landing Page Profesional
+
+Lógica detrás de esta decisión
+
+La landing page es un producto de baja complejidad comparado con una web corporativa o un e-commerce. Tener Basic, Pro y Premium en este caso se veía forzado y más cercano a marketing artificial que a una diferencia real de servicio.
+
+Qué incluye
+diseño moderno y responsive
+1 página tipo landing
+hasta 5 o 6 secciones
+formulario de contacto
+botón WhatsApp
+integración con redes sociales
+SEO básico on-page
+optimización de carga
+publicación del sitio
+soporte inicial acotado
+Qué no incluye
+e-commerce
+blog
+sistema de usuarios
+automatizaciones
+integraciones complejas
+panel avanzado
+cambios continuos posteriores
+Precio definido
+
+$149.990 CLP
+
+4.2 Web Informativa
+
+Se decidió que la Web Informativa sí tendrá planes.
+
+Estructura definida
+Basic
+Pro
+Premium
+Motivo
+
+A diferencia de la landing, una web informativa sí puede variar bastante en complejidad, páginas, estructura, navegación y nivel de personalización. Por eso sí tiene sentido dividirla por niveles.
+
+Web Informativa Basic
+Perfil
+
+Para negocios que necesitan una presencia profesional básica y clara.
+
+Incluye
+diseño responsive
+hasta 5 páginas
+inicio
+servicios
+sobre nosotros
+contacto
+formulario de contacto
+botón WhatsApp
+integración con redes sociales
+SEO básico
+optimización de carga
+publicación del sitio
+No incluye
+blog avanzado
+funciones a medida
+e-commerce
+reservas complejas
+automatizaciones
+Ideal para
+emprendedores en crecimiento
+negocios locales
+pymes pequeñas
+servicios profesionales
+Precio
+
+$249.990 CLP
+
+Web Informativa Pro
+Perfil
+
+Para empresas que necesitan una web más robusta y mejor organizada.
+
+Incluye
+todo lo del Basic
+hasta 8 o 10 páginas
+mejor navegación
+diseño más personalizado
+bloques o secciones de servicios más completos
+formulario más robusto
+secciones de testimonios, FAQs o portafolio si aplica
+mejor ordenamiento del contenido
+base preparada para crecimiento
+SEO básico mejor trabajado
+No incluye
+e-commerce
+automatizaciones complejas
+sistemas internos
+reservas avanzadas a medida
+integraciones empresariales complejas
+Ideal para
+pymes establecidas
+clínicas
+centros
+consultoras
+marcas que quieren proyectar más confianza
+Precio
+
+$449.990 CLP
+
+Decisión especial
+
+Se definió que este plan debe aparecer visualmente como el más recomendado o más elegido dentro del frontend.
+
+Web Informativa Premium
+Perfil
+
+Para clientes que necesitan una web corporativa más amplia y más personalizada.
+
+Incluye
+todo lo del Pro
+hasta 12 o 15 páginas
+mayor nivel de personalización visual
+estructura de contenido más robusta
+más secciones especializadas
+mejor preparación para crecimiento futuro
+mayor trabajo de presentación de marca
+No incluye
+tienda online
+sistemas de gestión
+módulos internos complejos
+automatizaciones avanzadas
+software a medida
+Ideal para
+empresas con más contenido institucional
+marcas que quieren una web más completa
+negocios con alto volumen de información
+Precio
+
+$699.990 CLP
+
+4.3 E-commerce
+
+Se decidió que el e-commerce será una línea de servicio separada y con dos niveles iniciales.
+
+Estructura definida
+Basic
+Pro
+E-commerce Basic
+Perfil
+
+Para negocios que quieren comenzar a vender online con una tienda simple y profesional.
+
+Incluye
+diseño responsive
+catálogo básico
+carrito de compra
+checkout
+integración de pasarela de pago
+hasta 20 productos cargados
+categorías básicas
+contacto o formulario
+botón WhatsApp
+SEO básico
+optimización de velocidad
+publicación del sitio
+No incluye
+ERP
+integraciones empresariales complejas
+automatizaciones avanzadas
+marketplace
+múltiples sucursales
+personalizaciones muy complejas
+Ideal para
+emprendimientos
+tiendas pequeñas
+negocios que recién comienzan a vender online
+Precio
+
+$449.990 CLP
+
+E-commerce Pro
+Perfil
+
+Para negocios que necesitan una tienda más completa y preparada para crecer.
+
+Incluye
+todo lo del Basic
+hasta 80 productos cargados
+mejor organización por categorías
+banners o bloques promocionales
+cupones o descuentos básicos
+estructura visual más robusta
+mejor base para escalabilidad
+preparación para crecimiento del catálogo
+No incluye
+ERP avanzado
+automatizaciones empresariales complejas
+integraciones logísticas avanzadas
+marketplace
+sistemas internos a medida
+Ideal para
+tiendas en crecimiento
+negocios con más variedad de productos
+marcas que quieren una tienda más completa
+Precio
+
+$699.990 CLP
+
+5. Tabla final de precios definida
+Servicio	Plan / modalidad	Precio
+Landing Page	Landing Page Profesional	$149.990 CLP
+Web Informativa	Basic	$249.990 CLP
+Web Informativa	Pro	$449.990 CLP
+Web Informativa	Premium	$699.990 CLP
+E-commerce	Basic	$449.990 CLP
+E-commerce	Pro	$699.990 CLP
+6. Qué se decidió NO hacer por ahora
+
+Durante la conversación también se tomaron decisiones importantes sobre lo que no se implementará todavía.
+
+6.1 No mostrar extras por ahora
+
+Se habló sobre ofrecer complementos como:
+
+chatbot
+copywriting
+SEO adicional
+blog como add-on
+páginas extra
+multi idioma
+automatizaciones
+
+Aunque se concluyó que eso sí tiene sentido a futuro, finalmente se decidió que:
+
+por ahora SICOVE NO mostrará extras como parte pública de la oferta principal.
+
+Motivo
+mantener la oferta simple
+evitar saturar al cliente
+no complejizar la venta
+facilitar la producción
+dejar esos complementos para futuras actualizaciones de SICOVE
+7. Conclusiones sobre facilidad técnica y uso de IA
+
+También se discutió si los planes, servicios y posibles extras eran fáciles o complejos de hacer usando IA.
+
+Conclusión
+
+Sí, es totalmente viable avanzar con IA, siempre que:
+
+el alcance esté claro
+los servicios estén bien definidos
+la estructura del frontend sea modular
+la lógica sea data-driven
+no se hardcodee el contenido en los componentes visuales
+
+Se concluyó que:
+
+Landing Page
+Web Informativa
+E-commerce
+secciones de pricing
+listas de características
+y estructura comercial editable
+
+son perfectamente abordables con IA si se dan instrucciones claras.
+
+8. Decisiones de frontend y arquitectura para Antigravity
+
+Luego se pidió un prompt para Antigravity con el fin de avanzar el frontend.
+
+Lo que se definió para el frontend
+actualizar el sitio comercial de SICOVE con la nueva oferta
+mostrar claramente los tres servicios
+mostrar los planes correspondientes
+presentar Landing Page como una única oferta
+destacar visualmente el Pro de Web Informativa
+dejar la UI lista para futura conexión con backend
+evitar hardcoding
+separar contenido y presentación
+preparar todo para futura edición desde admin
+Reglas técnicas reforzadas
+no conectar backend real todavía
+no conectar Supabase todavía
+usar mock data estructurada
+diseñar pensando en futura integración con panel admin
+usar componentes reutilizables
+mantener arquitectura modular
+evitar lógica rígida en el JSX
+Resultado esperado
+frontend actualizado
+pricing y servicios claros
+contenido desacoplado
+estructura lista para backend/admin más adelante
+9. Documento en Markdown generado
+
+Después de definir todo lo anterior, se pidió pasar la propuesta comercial a un archivo .md, y se generó un archivo Markdown completo con el informe comercial base de servicios, planes, descripciones y precios.
+
+Ese documento quedó como base oficial resumida de la estructura comercial actual de SICOVE.
+
+10. Estado final en que quedó SICOVE tras esta conversación
+Oferta comercial oficial inicial
+Landing Page
+una sola oferta
+pago único
+precio fijo de entrada
+sin planes
+Web Informativa
+tres planes
+Basic / Pro / Premium
+con diferencias reales de alcance
+E-commerce
+dos planes
+Basic / Pro
+Extras
+no visibles por ahora
+se dejan para futuras versiones
+11. Decisiones más importantes cerradas
+Quedó definido que:
+la Landing no se dividirá en Basic / Pro / Premium
+la Landing se ofrecerá solo como pago único
+la Web Informativa sí tendrá 3 planes
+el E-commerce tendrá 2 planes
+no se mostrarán extras por ahora
+la oferta principal debe ser simple y fácil de vender
+el frontend debe reflejar esta estructura exacta
+el contenido debe quedar preparado para edición futura desde admin
+por ahora no se conecta backend ni Supabase
+todo debe quedar modular, escalable y sin hardcodear
+12. Conclusión general
+
+Esta conversación dejó bastante bien cerrada la base comercial inicial de SICOVE.
+
+Lo más importante que se logró fue pasar de ideas sueltas a una estructura concreta y coherente:
+
+servicios definidos
+precios base definidos
+lógica comercial definida
+diferenciación por tipo de proyecto
+decisiones claras sobre qué ofrecer ahora y qué dejar para después
+lineamientos claros para frontend y futura integración administrativa
+
+En resumen, SICOVE quedó encaminado hacia una oferta comercial inicial que busca ser:
+
+clara
+accesible
+profesional
+escalable
+coherente con la etapa actual del proyecto

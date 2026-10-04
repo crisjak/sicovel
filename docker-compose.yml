@@ -1,0 +1,82 @@
+# ===========================================
+# SICOVE - Docker Compose Development
+# ===========================================
+# Ejecutar: docker-compose up
+
+services:
+  # -----------------------------------------
+  # Web (Next.js)
+  # -----------------------------------------
+  web:
+    build:
+      context: ./apps/web
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./apps/web:/app
+      - /app/node_modules
+      - /app/.next
+    environment:
+      - NODE_ENV=development
+    depends_on:
+      - postgres
+
+  # -----------------------------------------
+  # Node.js API
+  # -----------------------------------------
+  node-api:
+    build:
+      context: ./backend/node-api
+      dockerfile: Dockerfile
+    ports:
+      - "3001:3001"
+    volumes:
+      - ./backend/node-api:/app
+      - /app/node_modules
+    environment:
+      - NODE_ENV=development
+    depends_on:
+      - postgres
+
+  # -----------------------------------------
+  # Django API
+  # -----------------------------------------
+  django:
+    build:
+      context: ./backend/django
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./backend/django:/app
+    environment:
+      - DJANGO_SETTINGS_MODULE=sicove.settings
+      - DEBUG=True
+    depends_on:
+      - postgres
+
+  # -----------------------------------------
+  # PostgreSQL (Local Development)
+  # -----------------------------------------
+  postgres:
+    image: postgres:16-alpine
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: sicove
+      POSTGRES_PASSWORD: sicove_dev
+      POSTGRES_DB: sicove_db
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  # -----------------------------------------
+  # Redis (Cache - opcional)
+  # -----------------------------------------
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+
+volumes:
+  postgres_data:

@@ -1,0 +1,393 @@
+{
+    "navbar": {
+        "logo": {
+            "text": "SICOVEL",
+            "href": "/"
+        },
+        "links": [
+            {
+                "label": "Inicio",
+                "href": "/"
+            },
+            {
+                "label": "Servicios",
+                "href": "/servicios"
+            },
+            {
+                "label": "Precios",
+                "href": "/precios"
+            },
+            {
+                "label": "Quiénes somos",
+                "href": "/nosotros"
+            },
+            {
+                "label": "Contacto",
+                "href": "/contacto"
+            }
+        ],
+        "ctaButton": {
+            "text": "Cotizar mi proyecto",
+            "href": "/contacto#cotizar"
+        }
+    },
+    "hero": {
+        "title": "Tecnología de Alto Rendimiento para tu Negocio",
+        "subtitle": "",
+        "description": "Creamos landing pages, sitios web y e-commerce que impulsan tu crecimiento. Sin dependencia técnica, tú decides.",
+        "primaryButton": {
+            "text": "Hablar por WhatsApp",
+            "href": "https://wa.me/56912345678?text=Hola%2C%20quiero%20cotizar%20un%20proyecto%20web%20con%20SICOVEL."
+        },
+        "secondaryButton": {
+            "text": "Ver Planes",
+            "href": "/precios"
+        },
+        "backgroundImage": "/images/hero-bg.jpg"
+    },
+    "services": [
+        {
+            "id": "landing",
+            "title": "Landing Page Profesional",
+            "description": "Página única moderna, rápida y enfocada en conversión para mostrar tu servicio y captar clientes.",
+            "icon": "Rocket",
+            "imageUrl": "/images/services/landing.png",
+            "features": [
+                "Diseño moderno y responsive",
+                "Formulario de contacto + WhatsApp",
+                "SEO básico on-page",
+                "Pago único, sin mensualidades"
+            ],
+            "href": "/precios#landing"
+        },
+        {
+            "id": "sitio_informativo",
+            "title": "Web Informativa",
+            "description": "Sitios web profesionales con múltiples páginas para empresas que buscan credibilidad y presencia sólida.",
+            "icon": "Globe",
+            "imageUrl": "/images/services/web.png",
+            "features": [
+                "Hasta 15 páginas según plan",
+                "Diseño personalizado",
+                "Estructura preparada para crecer",
+                "3 planes: Basic, Pro y Premium"
+            ],
+            "href": "/precios#sitio_informativo"
+        },
+        {
+            "id": "ecommerce",
+            "title": "E-commerce",
+            "description": "Tiendas online profesionales con pasarelas de pago integradas y sin comisiones por venta.",
+            "icon": "ShoppingCart",
+            "imageUrl": "/images/services/ecom.png",
+            "features": [
+                "Pasarelas chilenas (Webpay/Flow)",
+                "Catálogo y carrito de compra",
+                "0% comisión SICOVEL",
+                "2 planes: Basic y Pro"
+            ],
+            "href": "/precios#ecommerce"
+        }
+    ],
+    "footer": {
+        "logo": {
+            "text": "SICOVEL",
+            "tagline": "Tecnología de alto rendimiento para emprendedores chilenos."
+        },
+        "columns": [
+            {
+                "title": "Servicios",
+                "links": [
+                    {
+                        "label": "Landing Pages",
+                        "href": "/servicios/landing-pages"
+                    },
+                    {
+                        "label": "Páginas Informativas",
+                        "href": "/servicios/paginas-informativas"
+                    },
+                    {
+                        "label": "E-commerce",
+                        "href": "/servicios/ecommerce"
+                    }
+                ]
+            },
+            {
+                "title": "Empresa",
+                "links": [
+                    {
+                        "label": "Sobre Nosotros",
+                        "href": "/nosotros"
+                    },
+                    {
+                        "label": "Contacto",
+                        "href": "/contacto"
+                    }
+                ]
+            },
+            {
+                "title": "Legal",
+                "links": [
+                    {
+                        "label": "Términos y condiciones",
+                        "href": "/terminos-y-condiciones"
+                    },
+                    {
+                        "label": "Política de privacidad",
+                        "href": "/politica-de-privacidad"
+                    }
+                ]
+            }
+        ],
+        "socialLinks": [
+            {
+                "platform": "Instagram",
+                "href": "https://www.instagram.com/sicovelchile",
+                "icon": "Instagram"
+            },
+            {
+                "platform": "TikTok",
+                "href": "https://www.tiktok.com/@sicovel",
+                "icon": "Music2"
+            },
+            {
+                "platform": "YouTube",
+                "href": "https://www.youtube.com/@sicovel",
+                "icon": "Youtube"
+            },
+            {
+                "platform": "Facebook",
+                "href": "https://web.facebook.com/profile.php?id=61590481353450",
+                "icon": "Facebook"
+            }
+        ],
+        "copyright": "© 2026 SICOVEL. Todos los derechos reservados."
+    },
+    "portfolio": {
+        "title": "Nuestro Portafolio",
+        "subtitle": "Proyectos que hablan por sí solos. Conoce el trabajo que hemos realizado para nuestros clientes.",
+        "projects": [
+            {
+                "id": "proyecto-1",
+                "title": "Tocados FlorBella",
+                "description": "Landing page para tienda de accesorios florales artesanales con catálogo de productos y formulario de pedidos por WhatsApp.",
+                "category": "Landing Page",
+                "imageUrl": "/images/portfolio/florbella.jpg",
+                "liveUrl": "https://florbella.cl",
+                "tags": [
+                    "Landing Page",
+                    "E-commerce",
+                    "WhatsApp"
+                ]
+            },
+            {
+                "id": "proyecto-2",
+                "title": "Consultoría Legal Ríos",
+                "description": "Sitio web informativo multipágina para estudio de abogados con secciones de servicios, equipo y blog jurídico.",
+                "category": "Página Informativa",
+                "imageUrl": "/images/portfolio/rios-legal.jpg",
+                "liveUrl": "https://rioslegal.cl",
+                "tags": [
+                    "Web Informativa",
+                    "Blog",
+                    "SEO"
+                ]
+            },
+            {
+                "id": "proyecto-3",
+                "title": "TechMarket Chile",
+                "description": "Tienda online de productos tecnológicos con integración de Webpay, catálogo de más de 500 productos y panel de gestión.",
+                "category": "E-commerce",
+                "imageUrl": "/images/portfolio/techmarket.jpg",
+                "liveUrl": "https://techmarket.cl",
+                "tags": [
+                    "E-commerce",
+                    "Webpay",
+                    "Catálogo"
+                ]
+            }
+        ]
+    },
+    "contact": {
+        "title": "Contáctanos",
+        "subtitle": "Hablemos de tu Proyecto",
+        "description": "¿Tienes una idea en mente? Cuéntanos sobre tu proyecto y te responderemos en menos de 24 horas con una propuesta personalizada.",
+        "info": [
+            {
+                "icon": "Mail",
+                "label": "Email",
+                "value": "contacto@sicovel.cl",
+                "href": "mailto:contacto@sicovel.cl"
+            },
+            {
+                "icon": "MessageCircle",
+                "label": "WhatsApp",
+                "value": "+56 9 1234 5678",
+                "href": "https://wa.me/56912345678"
+            },
+            {
+                "icon": "MapPin",
+                "label": "Ubicación",
+                "value": "Santiago, Chile",
+                "href": ""
+            },
+            {
+                "icon": "Clock",
+                "label": "Horario",
+                "value": "Lun - Vie: 9:00 - 18:00",
+                "href": ""
+            }
+        ],
+        "formTitle": "Envíanos un mensaje",
+        "formDescription": "Completa el formulario y nos pondremos en contacto contigo lo antes posible."
+    },
+    "about": {
+        "title": "Quiénes Somos",
+        "subtitle": "Conoce más sobre SICOVEL",
+        "description": "Somos un estudio digital chileno enfocado en potenciar negocios a través de soluciones tecnológicas de alto rendimiento. Construimos productos modernos y escalables que eliminan la dependencia técnica.",
+        "history": "SICOVEL nació como respuesta a la necesidad de emprendedores chilenos de acceder a tecnología de punta sin costos prohibitivos ni ataduras. Desde nuestros inicios, hemos desarrollado múltiples proyectos digitales exitosos.",
+        "mission": "Nuestra misión es democratizar el acceso a plataformas digitales de calidad corporativa, proveyendo herramientas tecnológicas que impulsen el crecimiento sostenido de nuestros clientes.",
+        "vision": "Convertirnos en el aliado tecnológico número uno para los negocios en Chile, reconocidos por nuestra transparencia, innovación y resultados tangibles sin lock-in artificial.",
+        "values": [
+            {
+                "id": "val-1",
+                "title": "Transparencia Total",
+                "description": "Sin letras chicas ni retención de código. Tú eres dueño de tu plataforma.",
+                "icon": "ShieldCheck"
+            },
+            {
+                "id": "val-2",
+                "title": "Excelencia Técnica",
+                "description": "Usamos arquitecturas punteras para asegurar un rendimiento absoluto y velocidad.",
+                "icon": "Zap"
+            },
+            {
+                "id": "val-3",
+                "title": "Cercanía y Apoyo",
+                "description": "Hablamos tu idioma brindando soporte rápido y atención personalizada.",
+                "icon": "HeartHandshake"
+            }
+        ]
+    },
+    "proceso": {
+        "titulo": "¿Cómo trabajamos?",
+        "subtitulo": "Un proceso claro, sin sorpresas y diseñado para que te sientas acompañado en cada paso.",
+        "pasos": [
+            {
+                "id": "paso-1",
+                "paso": 1,
+                "titulo": "Cuéntanos tu idea",
+                "descripcion": "Contáctanos por WhatsApp o formulario. Cuéntanos qué necesitas: tipo de sitio, tu negocio y tus objetivos.",
+                "icono": "MessageCircle"
+            },
+            {
+                "id": "paso-2",
+                "paso": 2,
+                "titulo": "Revisamos tu caso",
+                "descripcion": "Analizamos tu situación y te hacemos las preguntas necesarias para entender bien el alcance real del proyecto.",
+                "icono": "Search"
+            },
+            {
+                "id": "paso-3",
+                "paso": 3,
+                "titulo": "Te recomendamos el plan adecuado",
+                "descripcion": "Te orientamos sobre qué plan se ajusta mejor a tu negocio, sin venderte más de lo que necesitas.",
+                "icono": "Lightbulb"
+            },
+            {
+                "id": "paso-4",
+                "paso": 4,
+                "titulo": "Te enviamos una propuesta",
+                "descripcion": "Recibes una propuesta clara con el alcance confirmado, el precio total y los plazos estimados.",
+                "icono": "FileText"
+            },
+            {
+                "id": "paso-5",
+                "paso": 5,
+                "titulo": "Iniciamos con 50% de anticipo",
+                "descripcion": "Una vez que apruebas la propuesta, pagas el 50% de anticipo vía transferencia bancaria y emitimos tu boleta de honorarios.",
+                "icono": "Banknote"
+            },
+            {
+                "id": "paso-6",
+                "paso": 6,
+                "titulo": "Desarrollamos, revisamos y publicamos",
+                "descripcion": "Construimos tu sitio, lo revisamos contigo y lo publicamos. Al aprobar el resultado, pagas el 50% restante.",
+                "icono": "Rocket"
+            }
+        ]
+    },
+    "faqsComerciales": {
+        "titulo": "Preguntas frecuentes",
+        "subtitulo": "Todo lo que necesitas saber antes de empezar.",
+        "items": [
+            {
+                "id": "faq-1",
+                "pregunta": "¿Puedo pagar directamente desde la web?",
+                "respuesta": "No por ahora. Trabajamos con venta asistida: primero conversamos sobre tu proyecto, confirmamos el alcance y luego te enviamos los datos para realizar el pago. Así nos aseguramos de que el plan elegido sea realmente el que necesitas."
+            },
+            {
+                "id": "faq-2",
+                "pregunta": "¿Cómo se inicia un proyecto?",
+                "respuesta": "Escríbenos por WhatsApp o completa el formulario de contacto. Coordinamos una conversación breve para entender tu proyecto y enviarte una propuesta personalizada."
+            },
+            {
+                "id": "faq-3",
+                "pregunta": "¿Cuánto se paga para comenzar?",
+                "respuesta": "El 50% del valor total al inicio del proyecto. El 50% restante se paga una vez que apruebas el resultado final, antes de la publicación o entrega."
+            },
+            {
+                "id": "faq-4",
+                "pregunta": "¿Aceptan transferencia bancaria?",
+                "respuesta": "Sí, es nuestro medio principal de pago. Te enviamos los datos bancarios una vez que confirmes tu proyecto."
+            },
+            {
+                "id": "faq-5",
+                "pregunta": "¿Tienen Flow o pago con tarjeta?",
+                "respuesta": "Podemos enviarte un link de pago por Flow de forma manual, después de haber conversado y acordado el proyecto. No está integrado directamente en el sitio web por ahora."
+            },
+            {
+                "id": "faq-6",
+                "pregunta": "¿Emiten boleta o factura?",
+                "respuesta": "Emitimos boleta de honorarios electrónica por nuestros servicios. Si tu empresa requiere factura, conversemos antes de iniciar el proyecto para revisar la mejor alternativa disponible."
+            },
+            {
+                "id": "faq-7",
+                "pregunta": "¿Qué pasa si necesito factura?",
+                "respuesta": "Evaluamos cada caso. Si tu empresa exige factura electrónica obligatoria, cuéntanos antes de iniciar para poder orientarte correctamente."
+            },
+            {
+                "id": "faq-8",
+                "pregunta": "¿El precio incluye dominio y hosting?",
+                "respuesta": "Sí, todos nuestros planes incluyen dominio .cl o .com y hosting por 1 año. Te lo confirmamos en la propuesta para que no haya sorpresas."
+            },
+            {
+                "id": "faq-9",
+                "pregunta": "¿Qué pasa después de publicar mi sitio?",
+                "respuesta": "Te entregamos acceso completo a tu sitio. Eres el dueño. Si quieres seguir con soporte o actualizaciones, podemos conversar sobre opciones de mantención."
+            },
+            {
+                "id": "faq-10",
+                "pregunta": "¿Ofrecen mantención mensual?",
+                "respuesta": "Estamos preparando ese servicio. Por ahora nos enfocamos en el desarrollo inicial. Si te interesa, cuéntanos y lo tenemos en cuenta para cuando esté disponible."
+            },
+            {
+                "id": "faq-11",
+                "pregunta": "¿Puedo cambiar contenido después?",
+                "respuesta": "Sí. El sitio es tuyo y puedes actualizar contenido. Si necesitas ayuda con cambios o capacitación para editarlo tú mismo, podemos incluirlo en la propuesta."
+            }
+        ]
+    },
+    "preciosCta": {
+        "titulo": "¿Necesitas algo personalizado?",
+        "descripcion": "Cada proyecto es único. Si ningún plan se ajusta exactamente a lo que necesitas, conversemos para crear una cotización a tu medida.",
+        "textoBoton": "Solicitar Cotización Personalizada",
+        "href": "/contacto"
+    },
+    "preciosHeader": {
+        "eyebrow": "Precios Transparentes",
+        "titulo": "Planes y Precios",
+        "descripcion": "Precios claros, sin comisiones ocultas. Elige el servicio y plan que mejor se adapte a tu negocio.",
+        "nota": "Todos los proyectos se confirman mediante atención previa y se inician con 50% de anticipo."
+    }
+}
