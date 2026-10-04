@@ -1,6 +1,6 @@
 'use server'
 
-import { createClient } from '../supabase/server'
+import { createPublicClient } from '../supabase/client-public'
 
 export interface FaqItem {
     id: string
@@ -16,7 +16,7 @@ export interface FaqItem {
  */
 export async function getFaqsActivas(): Promise<FaqItem[]> {
     try {
-        const supabase = createClient()
+        const supabase = createPublicClient()
 
         const { data, error } = await supabase
             .from('faqs')

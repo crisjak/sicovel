@@ -1,6 +1,6 @@
 'use server'
 
-import { createClient } from '../supabase/server'
+import { createPublicClient } from '../supabase/client-public'
 
 export interface TestimonioItem {
     id: string
@@ -19,7 +19,7 @@ export interface TestimonioItem {
  */
 export async function getTestimoniosActivos(): Promise<TestimonioItem[]> {
     try {
-        const supabase = createClient()
+        const supabase = createPublicClient()
 
         const { data, error } = await supabase
             .from('testimonios')
