@@ -22,7 +22,7 @@ export default function PublicLayout({
                 <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-gradient-to-tr from-cyan-400/20 to-blue-500/20 rounded-full blur-[100px] opacity-70" />
             </div>
 
-            <main className="relative z-0 flex flex-col">{children}</main>
+            <main className="relative z-0 flex flex-col w-full min-h-screen overflow-x-hidden">{children}</main>
             
             <Footer data={data.footer} />
 

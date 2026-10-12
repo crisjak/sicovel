@@ -51,10 +51,10 @@ export default async function PreciosPage(): Promise<React.JSX.Element> {
             <section className="relative pt-32 pb-16 lg:pt-40 lg:pb-20 overflow-hidden text-center px-4">
                 <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8">
                     <SectionEyebrow text={preciosHeader.eyebrow} />
-                    <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight max-w-4xl mx-auto drop-shadow-sm">
+                    <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight max-w-4xl mx-auto drop-shadow-sm">
                         <SectionTitle text={preciosHeader.titulo} />
                     </h1>
-                    <p className="mt-6 text-lg sm:text-xl text-zinc-600 dark:text-zinc-400 max-w-2xl mx-auto leading-relaxed">
+                    <p className="mt-4 sm:mt-6 text-base sm:text-xl text-zinc-600 dark:text-zinc-400 max-w-2xl mx-auto leading-relaxed">
                         {preciosHeader.descripcion}
                     </p>
                     <p className="mt-4 text-sm font-medium text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/20 inline-block px-4 py-2 rounded-full border border-blue-100 dark:border-blue-800">
@@ -75,17 +75,17 @@ export default async function PreciosPage(): Promise<React.JSX.Element> {
             {/* CTA Section */}
             <section className="py-16 lg:py-24 px-4">
                 <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="relative max-w-3xl mx-auto text-center p-8 lg:p-12 rounded-3xl border border-zinc-200 dark:border-zinc-800 bg-white/50 dark:bg-slate-900/50 backdrop-blur-xl">
+                    <div className="relative max-w-3xl mx-auto text-center p-6 sm:p-8 lg:p-12 rounded-3xl border border-zinc-200 dark:border-zinc-800 bg-white/50 dark:bg-slate-900/50 backdrop-blur-xl">
                         <div className="relative z-10">
-                            <h2 className="text-3xl sm:text-4xl font-bold text-zinc-900 dark:text-white mb-4">
+                            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-zinc-900 dark:text-white mb-4">
                                 {preciosCta.titulo}
                             </h2>
-                            <p className="text-zinc-600 dark:text-zinc-300 text-lg mb-8 max-w-xl mx-auto">
+                            <p className="text-zinc-600 dark:text-zinc-300 text-base sm:text-lg mb-8 max-w-xl mx-auto">
                                 {preciosCta.descripcion}
                             </p>
                             <Link
                                 href={preciosCta.href}
-                                className="inline-flex items-center justify-center px-8 py-4 text-lg font-medium text-white bg-blue-600 rounded-xl hover:bg-blue-700 dark:text-blue-600 dark:bg-white dark:hover:bg-blue-50 transition-all shadow-lg hover:-translate-y-1"
+                                className="inline-flex items-center justify-center px-6 sm:px-8 py-3.5 sm:py-4 text-base sm:text-lg font-medium text-white bg-blue-600 rounded-xl hover:bg-blue-700 dark:text-blue-600 dark:bg-white dark:hover:bg-blue-50 transition-all shadow-lg hover:-translate-y-1 w-full sm:w-auto"
                             >
                                 {preciosCta.textoBoton}
                             </Link>

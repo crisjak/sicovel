@@ -2,6 +2,8 @@ import { NextResponse } from 'next/server'
 import { createClient } from '@/lib/supabase/server'
 import { requireAdmin, UnauthorizedError } from '@/lib/auth/require-admin'
 
+export const dynamic = 'force-dynamic'
+
 /**
  * GET /api/admin/config
  * Devuelve todas las configuraciones de configuraciones_sitio como un objeto plano.

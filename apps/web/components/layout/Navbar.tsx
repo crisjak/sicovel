@@ -3,8 +3,7 @@
 import Link from 'next/link'
 import { useState } from 'react'
 import { Menu, X } from 'lucide-react'
-import Image from 'next/image'
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion } from 'framer-motion'
 import { usePathname } from 'next/navigation'
 import { ThemeToggle } from './ThemeToggle'
 import { BrandLogo } from '@/components/ui/BrandLogo'
@@ -27,13 +26,13 @@ export function Navbar({ data }: NavbarProps): React.JSX.Element {
                     {/* ── Logo Brandmark ── */}
                     <Link
                         href={data.logo.href}
-                        className="flex items-center group select-none shrink-0"
+                        className="flex items-center group select-none shrink-0 min-w-0"
                     >
                         <div className="flex items-center">
                             {/* Full Image Logo (Oficial) — Optical Scale Override via Reusable Component */}
                             <BrandLogo 
-                                className="w-[200px] sm:w-[260px] md:w-[320px] lg:w-[360px] h-16 md:h-20 translate-y-1.5 md:translate-y-2"
-                                imageClassName="scale-[1.75] md:scale-[2.1] lg:scale-[2.25]"
+                                className="w-[140px] min-[380px]:w-[180px] sm:w-[240px] md:w-[300px] lg:w-[360px] h-12 min-[380px]:h-14 sm:h-16 md:h-20 translate-y-0.5 md:translate-y-2 max-w-[55vw] sm:max-w-none"
+                                imageClassName="scale-[1.25] min-[380px]:scale-[1.5] sm:scale-[1.8] md:scale-[2.1] lg:scale-[2.25]"
                             />
                         </div>
                     </Link>
@@ -83,76 +82,73 @@ export function Navbar({ data }: NavbarProps): React.JSX.Element {
                         </motion.div>
                     </div>
 
-                    {/* ── Mobile: Hamburger ── */}
-                    <div className="flex md:hidden items-center gap-2 pr-12">
+                    {/* ── Mobile: Hamburger — CSS-only transitions (no framer-motion) ── */}
+                    <div className="flex md:hidden items-center gap-2">
                         <button
                             onClick={() => setIsMenuOpen(!isMenuOpen)}
-                            className="p-2 rounded-lg text-slate-500 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-200 hover:bg-blue-50 dark:hover:bg-blue-500/10 transition-all"
-                            aria-label="Toggle menu"
+                            className="relative p-2.5 rounded-xl min-w-[44px] min-h-[44px] flex items-center justify-center text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-200 hover:bg-blue-50/80 dark:hover:bg-blue-500/10 active:scale-95 transition-all"
+                            aria-label={isMenuOpen ? 'Cerrar menú' : 'Abrir menú'}
+                            aria-expanded={isMenuOpen}
                         >
-                            <AnimatePresence mode="wait" initial={false}>
-                                {isMenuOpen ? (
-                                    <motion.div key="close" initial={{ rotate: -90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: 90, opacity: 0 }} transition={{ duration: 0.15 }}>
-                                        <X className="w-6 h-6" />
-                                    </motion.div>
-                                ) : (
-                                    <motion.div key="open" initial={{ rotate: 90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: -90, opacity: 0 }} transition={{ duration: 0.15 }}>
-                                        <Menu className="w-6 h-6" />
-                                    </motion.div>
-                                )}
-                            </AnimatePresence>
+                            <span className={`absolute transition-all duration-150 ${isMenuOpen ? 'opacity-0 rotate-90 scale-50' : 'opacity-100 rotate-0 scale-100'}`}>
+                                <Menu className="w-6 h-6" />
+                            </span>
+                            <span className={`absolute transition-all duration-150 ${isMenuOpen ? 'opacity-100 rotate-0 scale-100' : 'opacity-0 -rotate-90 scale-50'}`}>
+                                <X className="w-6 h-6" />
+                            </span>
                         </button>
                     </div>
                 </div>
             </div>
 
-            {/* ── Mobile Menu Panel ── */}
-            <AnimatePresence>
-                {isMenuOpen && (
-                    <motion.div
-                        initial={{ opacity: 0, height: 0 }}
-                        animate={{ opacity: 1, height: 'auto' }}
-                        exit={{ opacity: 0, height: 0 }}
-                        transition={{ duration: 0.22, ease: 'easeInOut' }}
-                        className="overflow-hidden navbar-mobile-panel md:hidden"
-                    >
-                        <nav className="container mx-auto px-4 py-5 flex flex-col gap-1">
-                            {data.links.map((link) => {
-                                const isCurrent = pathname === link.href
-                                return (
-                                    <Link
-                                        key={link.href}
-                                        href={link.href}
-                                        onClick={() => setIsMenuOpen(false)}
-                                        className={`
-                                            px-4 py-3 rounded-full text-sm font-semibold transition-all active:scale-95 border
-                                            ${isCurrent
-                                                ? 'text-blue-100 dark:text-blue-100 bg-blue-600/30 dark:bg-blue-600/30 border-blue-400/50 dark:border-blue-400/50'
-                                                : 'text-slate-600 dark:text-slate-400 border-transparent hover:text-blue-600 dark:hover:text-blue-200 hover:bg-blue-50 dark:hover:bg-blue-500/10'
-                                            }
-                                        `}
-                                    >
-                                        {link.label}
-                                    </Link>
-                                )
-                            })}
-
+            {/* ── Mobile Menu Panel — CSS transition (no framer-motion, zero JS overhead) ── */}
+            <div
+                className={`
+                    navbar-mobile-panel md:hidden relative z-50
+                    border-b border-slate-200/20 dark:border-blue-500/15
+                    overflow-hidden transition-all duration-200 ease-in-out
+                    ${isMenuOpen
+                        ? 'opacity-100 max-h-[calc(100vh-5rem)] overflow-y-auto'
+                        : 'opacity-0 max-h-0 pointer-events-none'
+                    }
+                `}
+                aria-hidden={!isMenuOpen}
+            >
+                <nav className="container mx-auto px-4 py-5 flex flex-col gap-1.5">
+                    {data.links.map((link) => {
+                        const isCurrent = pathname === link.href
+                        return (
                             <Link
-                                href={data.ctaButton.href}
+                                key={link.href}
+                                href={link.href}
                                 onClick={() => setIsMenuOpen(false)}
-                                className="mt-3 px-4 py-3 text-sm font-bold text-white text-center bg-gradient-to-r from-blue-600 to-cyan-500 rounded-xl transition-all shadow-lg shadow-blue-500/20 active:scale-95 border border-blue-400/30"
+                                className={`
+                                    px-4 py-3 rounded-xl text-sm font-semibold transition-all active:scale-[0.98] border
+                                    ${isCurrent
+                                        ? 'text-blue-100 dark:text-blue-100 bg-blue-600/30 dark:bg-blue-600/30 border-blue-400/50 dark:border-blue-400/50'
+                                        : 'text-slate-700 dark:text-slate-300 border-transparent hover:text-blue-600 dark:hover:text-blue-200 hover:bg-blue-50 dark:hover:bg-blue-500/10'
+                                    }
+                                `}
                             >
-                                {data.ctaButton.text}
+                                {link.label}
                             </Link>
+                        )
+                    })}
 
-                            <div className="mt-3 flex items-center justify-between border-t border-slate-200 dark:border-blue-500/15 pt-4 px-2">
-                                <span className="text-sm font-medium text-slate-500 dark:text-blue-300/50">Modo de visualización</span>
-                                <ThemeToggle className="relative" />
-                            </div>
-                        </nav>
-                    </motion.div>
-                )}
-            </AnimatePresence>
+                    <Link
+                        href={data.ctaButton.href}
+                        onClick={() => setIsMenuOpen(false)}
+                        className="mt-3 px-4 py-3 text-sm font-bold text-white text-center bg-gradient-to-r from-blue-600 to-cyan-500 rounded-xl transition-all shadow-lg shadow-blue-500/20 active:scale-[0.98] border border-blue-400/30"
+                    >
+                        {data.ctaButton.text}
+                    </Link>
+
+                    <div className="mt-3 flex items-center justify-between border-t border-slate-200/40 dark:border-blue-500/15 pt-4 px-2">
+                        <span className="text-sm font-medium text-slate-500 dark:text-blue-300/60">Modo de visualización</span>
+                        <ThemeToggle className="relative" />
+                    </div>
+                </nav>
+            </div>
         </header>
         </div>
     )

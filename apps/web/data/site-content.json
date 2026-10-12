@@ -37,7 +37,7 @@
         "description": "Creamos landing pages, sitios web y e-commerce que impulsan tu crecimiento. Sin dependencia técnica, tú decides.",
         "primaryButton": {
             "text": "Hablar por WhatsApp",
-            "href": "https://wa.me/56912345678?text=Hola%2C%20quiero%20cotizar%20un%20proyecto%20web%20con%20SICOVEL."
+            "href": "https://wa.me/56920477927?text=Hola%2C%20quiero%20cotizar%20un%20proyecto%20web%20con%20SICOVEL."
         },
         "secondaryButton": {
             "text": "Ver Planes",
@@ -51,7 +51,7 @@
             "title": "Landing Page Profesional",
             "description": "Página única moderna, rápida y enfocada en conversión para mostrar tu servicio y captar clientes.",
             "icon": "Rocket",
-            "imageUrl": "/images/services/landing.png",
+            "imageUrl": "/images/carrusel/landing_mockup.png",
             "features": [
                 "Diseño moderno y responsive",
                 "Formulario de contacto + WhatsApp",
@@ -65,11 +65,11 @@
             "title": "Web Informativa",
             "description": "Sitios web profesionales con múltiples páginas para empresas que buscan credibilidad y presencia sólida.",
             "icon": "Globe",
-            "imageUrl": "/images/services/web.png",
+            "imageUrl": "/images/carrusel/informativa_mockup.png",
             "features": [
                 "Hasta 15 páginas según plan",
-                "Diseño personalizado",
-                "Estructura preparada para crecer",
+                "Catálogo Digital / Tienda Online con pedidos a WhatsApp (Pro y Premium)",
+                "Diseño corporativo personalizado",
                 "3 planes: Basic, Pro y Premium"
             ],
             "href": "/precios#sitio_informativo"
@@ -79,7 +79,7 @@
             "title": "E-commerce",
             "description": "Tiendas online profesionales con pasarelas de pago integradas y sin comisiones por venta.",
             "icon": "ShoppingCart",
-            "imageUrl": "/images/services/ecom.png",
+            "imageUrl": "/images/carrusel/ecomerce_mockup.png",
             "features": [
                 "Pasarelas chilenas (Webpay/Flow)",
                 "Catálogo y carrito de compra",
@@ -92,7 +92,7 @@
     "footer": {
         "logo": {
             "text": "SICOVEL",
-            "tagline": "Tecnología de alto rendimiento para emprendedores chilenos."
+            "tagline": "Tecnología de alto rendimiento para emprendedores"
         },
         "columns": [
             {
@@ -164,46 +164,32 @@
         "copyright": "© 2026 SICOVEL. Todos los derechos reservados."
     },
     "portfolio": {
-        "title": "Nuestro Portafolio",
-        "subtitle": "Proyectos que hablan por sí solos. Conoce el trabajo que hemos realizado para nuestros clientes.",
+        "badge": "Portafolio y Casos de Éxito",
+        "title": "Proyectos Recientes",
+        "subtitle": "Conoce algunas de las soluciones digitales que hemos desarrollado para emprendedores y especialistas.",
         "projects": [
             {
-                "id": "proyecto-1",
-                "title": "Tocados FlorBella",
-                "description": "Landing page para tienda de accesorios florales artesanales con catálogo de productos y formulario de pedidos por WhatsApp.",
-                "category": "Landing Page",
-                "imageUrl": "/images/portfolio/florbella.jpg",
-                "liveUrl": "https://florbella.cl",
+                "id": "floisa-sushi",
+                "title": "Floisa Sushi",
+                "category": "Web Informativa Pro / Catálogo Gastronómico",
+                "description": "Plataforma web con catálogo digital de productos y menú interactivo, diseñada para recepción ágil de pedidos directamente por WhatsApp.",
                 "tags": [
-                    "Landing Page",
-                    "E-commerce",
-                    "WhatsApp"
+                    "Catálogo Gastronómico",
+                    "Menú Interactivo",
+                    "Pedidos WhatsApp",
+                    "Web Informativa Pro"
                 ]
             },
             {
-                "id": "proyecto-2",
-                "title": "Consultoría Legal Ríos",
-                "description": "Sitio web informativo multipágina para estudio de abogados con secciones de servicios, equipo y blog jurídico.",
-                "category": "Página Informativa",
-                "imageUrl": "/images/portfolio/rios-legal.jpg",
-                "liveUrl": "https://rioslegal.cl",
+                "id": "silvana-terapia",
+                "title": "Silvana Terapia Ocupacional",
+                "category": "Landing Page Profesional",
+                "description": "Sitio web enfocado en la atención cercana de pacientes, presentación de servicios de salud y captación directa mediante WhatsApp.",
                 "tags": [
-                    "Web Informativa",
-                    "Blog",
-                    "SEO"
-                ]
-            },
-            {
-                "id": "proyecto-3",
-                "title": "TechMarket Chile",
-                "description": "Tienda online de productos tecnológicos con integración de Webpay, catálogo de más de 500 productos y panel de gestión.",
-                "category": "E-commerce",
-                "imageUrl": "/images/portfolio/techmarket.jpg",
-                "liveUrl": "https://techmarket.cl",
-                "tags": [
-                    "E-commerce",
-                    "Webpay",
-                    "Catálogo"
+                    "Landing Page Profesional",
+                    "Salud & Bienestar",
+                    "Atención de Pacientes",
+                    "WhatsApp Integrado"
                 ]
             }
         ]
@@ -216,14 +202,14 @@
             {
                 "icon": "Mail",
                 "label": "Email",
-                "value": "contacto@sicovel.cl",
-                "href": "mailto:contacto@sicovel.cl"
+                "value": "sotomellacristobal@gmail.com",
+                "href": "mailto:sotomellacristobal@gmail.com"
             },
             {
                 "icon": "MessageCircle",
                 "label": "WhatsApp",
-                "value": "+56 9 1234 5678",
-                "href": "https://wa.me/56912345678"
+                "value": "+56 9 2047 7927",
+                "href": "https://wa.me/56920477927"
             },
             {
                 "icon": "MapPin",

@@ -86,4 +86,6 @@ export interface ServicioComercial {
     visible: boolean
     /** URL de imagen de fondo para el carrusel (subida vía admin) */
     imagen_url?: string | null
+    /** Alias camelCase para compatibilidad */
+    imageUrl?: string | null
 }

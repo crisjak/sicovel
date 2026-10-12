@@ -1,10 +1,10 @@
 'use client'
 
 import { useState, useRef } from 'react'
-import { Send, Loader2, CheckCircle2, AlertCircle } from 'lucide-react'
+import { MessageCircle, Mail, Loader2, CheckCircle2, AlertCircle } from 'lucide-react'
 import { SectionTitle } from '@/components/ui/SectionTitle'
 import { SectionEyebrow } from '@/components/ui/SectionEyebrow'
-import { submitContactLead, type SubmitResult } from '@/lib/actions/contacto'
+import { submitContactLead } from '@/lib/actions/contacto'
 import { siteConfig } from '@/config/site'
 import { SERVICIOS_COMERCIALES } from '@/data/services-data'
 
@@ -126,11 +126,17 @@ function inputClass(hasError: boolean): string {
 // ═════════════════════════════════════════════════════════════════════════════
 export default function ContactoPage(): React.JSX.Element {
     const [status, setStatus]             = useState<FormStatus>('idle')
+    const [sendingTarget, setSendingTarget] = useState<'whatsapp' | 'email' | null>(null)
     const [generalError, setGeneralError] = useState('')
     const [localErrors, setLocalErrors]   = useState<LocalErrors>({})
     const [serverErrors, setServerErrors] = useState<ServerErrors>({})
     const [touched, setTouched]           = useState<TouchedState>({})
     const [mensajeLen, setMensajeLen]     = useState(0)
+    const [successData, setSuccessData]   = useState<{
+        metodo: 'whatsapp' | 'email'
+        url: string
+        nombre: string
+    } | null>(null)
     const formRef = useRef<HTMLFormElement>(null)
 
     // ── Marcar campo como tocado y validar ─────────────────────────────────
@@ -164,14 +170,14 @@ export default function ContactoPage(): React.JSX.Element {
         e.preventDefault()
     }
 
-    // ── Submit ─────────────────────────────────────────────────────────────
-    async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
-        e.preventDefault()
+    // ── Procesar envío hacia WhatsApp o Correo ────────────────────────────
+    async function handleSend(metodo: 'whatsapp' | 'email') {
         if (status === 'sending') return
 
-        // Marcar todos los campos requeridos como touched y validar
         const fieldsToValidate: FieldName[] = ['nombre', 'email', 'telefono', 'servicio_interes', 'mensaje']
-        const form = e.currentTarget
+        const form = formRef.current
+        if (!form) return
+
         const allTouched: TouchedState = {}
         const allErrors: LocalErrors   = {}
         let hasLocalError = false
@@ -187,54 +193,104 @@ export default function ContactoPage(): React.JSX.Element {
         setTouched(allTouched)
         setLocalErrors(allErrors)
 
-        if (hasLocalError) return   // detener si hay errores locales
+        if (hasLocalError) return
 
         setStatus('sending')
+        setSendingTarget(metodo)
         setGeneralError('')
         setServerErrors({})
 
         try {
             const formData = new FormData(form)
-            
-            // Componer número con prefijo antes de enviar a Server Action
-            const rawTelefono = formData.get('telefono') as string | null
-            if (rawTelefono) {
-                formData.set('telefono', '+56' + rawTelefono)
-            }
+            const rawTelefono = (formData.get('telefono') as string) || ''
+            const telefonoNormalizado = '+56 ' + rawTelefono.trim()
+            const nombre = ((formData.get('nombre') as string) || '').trim()
+            const email = ((formData.get('email') as string) || '').trim()
+            const negocio = ((formData.get('nombre_negocio') as string) || '').trim()
+            const rubro = ((formData.get('rubro') as string) || '').trim()
+            const servicioVal = (formData.get('servicio_interes') as string) || ''
+            const servicioNombre = TIPOS_PROYECTO.find((opt) => opt.value === servicioVal)?.label || (servicioVal === 'otro' ? 'Otro / No estoy seguro' : servicioVal)
+            const mensaje = ((formData.get('mensaje') as string) || '').trim()
 
-            const result: SubmitResult = await submitContactLead(formData)
+            // Registrar lead en segundo plano sin interrumpir la redirección
+            submitContactLead(formData).catch(() => {})
 
-            if (result.status === 'success') {
+            if (metodo === 'whatsapp') {
+                const waLines = [
+                    '¡Hola SICOVEL! Quiero cotizar un proyecto web:',
+                    '',
+                    `👤 *Nombre:* ${nombre}`,
+                    `📧 *Email:* ${email}`,
+                    `📱 *Teléfono:* ${telefonoNormalizado}`,
+                    negocio ? `🏢 *Negocio:* ${negocio}` : null,
+                    rubro ? `💼 *Rubro:* ${rubro}` : null,
+                    `🚀 *Proyecto:* ${servicioNombre}`,
+                    '',
+                    '💬 *Mensaje:*',
+                    mensaje,
+                ].filter(Boolean)
+
+                const waUrl = `https://wa.me/${siteConfig.whatsapp.numero}?text=${encodeURIComponent(waLines.join('\n'))}`
+                setSuccessData({
+                    metodo: 'whatsapp',
+                    url: waUrl,
+                    nombre,
+                })
                 setStatus('success')
-                setTouched({})
-                setLocalErrors({})
-                setMensajeLen(0)
-                formRef.current?.reset()
+                window.open(waUrl, '_blank')
             } else {
-                setStatus('error')
-                setGeneralError(
-                    result.message ??
-                    'Ocurrió un error al enviar tu solicitud. Por favor, escríbenos directamente por WhatsApp.'
-                )
-                if (result.errors) setServerErrors(result.errors)
+                const emailSubject = `Cotización Proyecto Web - ${nombre} (${servicioNombre})`
+                const emailBody = [
+                    'Hola equipo SICOVEL,',
+                    '',
+                    'Quiero solicitar una cotización con los siguientes detalles:',
+                    '',
+                    `Nombre: ${nombre}`,
+                    `Email: ${email}`,
+                    `Teléfono: ${telefonoNormalizado}`,
+                    negocio ? `Negocio / Empresa: ${negocio}` : null,
+                    rubro ? `Rubro: ${rubro}` : null,
+                    `Tipo de proyecto: ${servicioNombre}`,
+                    '',
+                    'Mensaje:',
+                    mensaje,
+                    '',
+                    'Enviado desde el formulario web de SICOVEL.',
+                ].filter(Boolean).join('\n')
+
+                const mailtoUrl = `mailto:${siteConfig.contacto.email}?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`
+                setSuccessData({
+                    metodo: 'email',
+                    url: mailtoUrl,
+                    nombre,
+                })
+                setStatus('success')
+                window.location.href = mailtoUrl
             }
         } catch {
             setStatus('error')
-            setGeneralError('Ocurrió un error al enviar tu solicitud. Por favor, escríbenos directamente por WhatsApp.')
+            setGeneralError('Ocurrió un error inesperado al procesar tu consulta. Por favor, contáctanos directamente por WhatsApp.')
+        } finally {
+            setSendingTarget(null)
         }
+    }
+
+    function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+        e.preventDefault()
+        handleSend('whatsapp')
     }
 
     // ── Render ─────────────────────────────────────────────────────────────
     return (
-        <main className="flex flex-col">
+        <main className="flex flex-col w-full overflow-x-hidden">
             {/* Hero */}
             <section className="relative pt-32 pb-16 lg:pt-40 lg:pb-20 overflow-hidden">
                 <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 text-center">
                     <SectionEyebrow text="Hablemos de tu Proyecto" />
-                    <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight max-w-4xl mx-auto drop-shadow-sm">
+                    <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight max-w-4xl mx-auto drop-shadow-sm">
                         <SectionTitle text="Contáctanos" />
                     </h1>
-                    <p className="mt-6 text-lg sm:text-xl text-zinc-600 dark:text-zinc-400 max-w-2xl mx-auto leading-relaxed">
+                    <p className="mt-4 sm:mt-6 text-base sm:text-xl text-zinc-600 dark:text-zinc-400 max-w-2xl mx-auto leading-relaxed">
                         ¿Tienes una idea en mente? Cuéntanos sobre tu proyecto y te responderemos en menos de 24 horas con una propuesta personalizada.
                     </p>
                 </div>
@@ -243,7 +299,7 @@ export default function ContactoPage(): React.JSX.Element {
             {/* Contenido: Info + Formulario */}
             <section className="pb-20 lg:pb-28 relative">
                 <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 max-w-6xl mx-auto">
 
                         {/* Info de Contacto */}
                         <div>
@@ -285,7 +341,7 @@ export default function ContactoPage(): React.JSX.Element {
 
                         {/* Formulario */}
                         <div id="cotizar" className="scroll-mt-32">
-                            <div className="bg-white dark:bg-slate-800/50 rounded-2xl border border-zinc-200 dark:border-zinc-800 p-8">
+                            <div className="bg-white dark:bg-slate-800/50 rounded-2xl border border-zinc-200 dark:border-zinc-800 p-4 sm:p-6 md:p-8">
                                 <h2 className="text-2xl font-bold text-zinc-900 dark:text-white mb-2">
                                     Solicita tu cotización
                                 </h2>
@@ -293,17 +349,67 @@ export default function ContactoPage(): React.JSX.Element {
                                     Completa el formulario y nos pondremos en contacto contigo lo antes posible.
                                 </p>
 
-                                {status === 'success' ? (
-                                    <div className="text-center py-12" role="status" aria-live="polite">
-                                        <div className="w-16 h-16 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center mx-auto mb-4">
-                                            <CheckCircle2 className="w-8 h-8 text-green-600 dark:text-green-400" />
+                                {status === 'success' && successData ? (
+                                    <div className="text-center py-10" role="status" aria-live="polite">
+                                        <div className={`w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 ${
+                                            successData.metodo === 'whatsapp'
+                                                ? 'bg-emerald-100 dark:bg-emerald-900/30 text-emerald-600 dark:text-emerald-400'
+                                                : 'bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400'
+                                        }`}>
+                                            <CheckCircle2 className="w-8 h-8" />
                                         </div>
+
                                         <h3 className="text-xl font-bold text-zinc-900 dark:text-white mb-2">
-                                            ¡Mensaje enviado!
+                                            {successData.metodo === 'whatsapp'
+                                                ? '¡Consulta preparada para WhatsApp!'
+                                                : '¡Consulta preparada para Correo!'}
                                         </h3>
-                                        <p className="text-zinc-500 dark:text-zinc-400">
-                                            ¡Gracias por contactarnos! Te responderemos en menos de 24 horas con una propuesta.
+
+                                        <p className="text-zinc-600 dark:text-zinc-400 text-sm max-w-md mx-auto mb-6 leading-relaxed">
+                                            {successData.metodo === 'whatsapp' ? (
+                                                <>
+                                                    Hola <strong className="text-zinc-900 dark:text-white">{successData.nombre}</strong>, hemos formateado tu consulta con todos los datos. Si no se abrió WhatsApp automáticamente en una nueva pestaña, puedes abrirlo directamente con el botón de abajo:
+                                                </>
+                                            ) : (
+                                                <>
+                                                    Hola <strong className="text-zinc-900 dark:text-white">{successData.nombre}</strong>, hemos preparado el correo dirigido a <strong className="text-zinc-900 dark:text-white">{siteConfig.contacto.email}</strong>. Si no se abrió tu cliente de correo automáticamente, haz clic abajo:
+                                                </>
+                                            )}
                                         </p>
+
+                                        <div className="flex flex-col sm:flex-row gap-3 justify-center items-center">
+                                            <a
+                                                href={successData.url}
+                                                target={successData.metodo === 'whatsapp' ? '_blank' : undefined}
+                                                rel={successData.metodo === 'whatsapp' ? 'noopener noreferrer' : undefined}
+                                                className={`inline-flex items-center justify-center gap-2 px-6 py-3 text-white font-medium rounded-xl shadow-lg transition-all ${
+                                                    successData.metodo === 'whatsapp'
+                                                        ? 'bg-gradient-to-r from-emerald-600 to-teal-500 hover:from-emerald-700 hover:to-teal-600 shadow-emerald-500/25'
+                                                        : 'bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600 shadow-blue-500/25'
+                                                }`}
+                                            >
+                                                {successData.metodo === 'whatsapp' ? (
+                                                    <><MessageCircle className="w-5 h-5" /> Abrir WhatsApp de SICOVEL</>
+                                                ) : (
+                                                    <><Mail className="w-5 h-5" /> Abrir en tu Correo</>
+                                                )}
+                                            </a>
+
+                                            <button
+                                                type="button"
+                                                onClick={() => {
+                                                    setStatus('idle')
+                                                    setSuccessData(null)
+                                                    setTouched({})
+                                                    setLocalErrors({})
+                                                    setMensajeLen(0)
+                                                    formRef.current?.reset()
+                                                }}
+                                                className="px-5 py-3 text-sm text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors"
+                                            >
+                                                Enviar otra consulta
+                                            </button>
+                                        </div>
                                     </div>
                                 ) : (
                                     <form
@@ -379,7 +485,7 @@ export default function ContactoPage(): React.JSX.Element {
                                                             Número de teléfono o WhatsApp <span className="text-red-500" aria-hidden="true">*</span>
                                                         </label>
                                                         <div className={`relative flex items-stretch rounded-lg border bg-white dark:bg-slate-900 overflow-hidden transition-colors focus-within:ring-2 focus-within:ring-blue-500 focus-within:border-transparent ${err ? 'border-red-400 dark:border-red-500' : 'border-zinc-300 dark:border-zinc-700'}`}>
-                                                            <div className="flex items-center px-4 bg-zinc-50 dark:bg-slate-800 text-zinc-500 dark:text-zinc-400 border-r border-zinc-300 dark:border-zinc-700 select-none">
+                                                            <div className="flex items-center px-3 sm:px-4 text-sm sm:text-base bg-zinc-50 dark:bg-slate-800 text-zinc-500 dark:text-zinc-400 border-r border-zinc-300 dark:border-zinc-700 select-none shrink-0">
                                                                 +56
                                                             </div>
                                                             <input
@@ -387,11 +493,11 @@ export default function ContactoPage(): React.JSX.Element {
                                                                 name="telefono"
                                                                 type="tel"
                                                                 maxLength={9}
-                                                                placeholder="9 3516 2784"
+                                                                placeholder="9 2047 7927"
                                                                 aria-required="true"
                                                                 aria-invalid={!!err}
                                                                 aria-describedby={err ? 'error-telefono' : 'hint-telefono'}
-                                                                className="w-full px-4 py-2.5 bg-transparent text-zinc-900 dark:text-white focus:outline-none"
+                                                                className="w-full min-w-0 px-3 sm:px-4 py-2.5 bg-transparent text-zinc-900 dark:text-white focus:outline-none text-sm sm:text-base"
                                                                 onKeyDown={handlePhoneKeyDown}
                                                                 onBlur={(e) => handleBlur('telefono', e.target.value)}
                                                                 onChange={(e) => handleChange('telefono', e.target.value)}
@@ -401,7 +507,7 @@ export default function ContactoPage(): React.JSX.Element {
                                                             <FieldErrorMsg id="error-telefono" message={err} />
                                                         ) : (
                                                             <p id="hint-telefono" className="mt-1 text-xs text-zinc-400 dark:text-zinc-500">
-                                                                Ejemplo: +56 9 1234 5678
+                                                                Ejemplo: +56 9 2047 7927
                                                             </p>
                                                         )}
                                                     </div>
@@ -551,19 +657,36 @@ export default function ContactoPage(): React.JSX.Element {
                                             </div>
                                         )}
 
-                                        {/* Botón de envío */}
-                                        <button
-                                            type="submit"
-                                            disabled={status === 'sending'}
-                                            aria-disabled={status === 'sending'}
-                                            className="w-full inline-flex items-center justify-center gap-2 px-6 py-3 bg-gradient-to-r from-blue-600 to-cyan-500 text-white rounded-xl font-medium hover:from-blue-700 hover:to-cyan-600 transition-all shadow-lg shadow-blue-500/25 disabled:opacity-50 disabled:cursor-not-allowed focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
-                                        >
-                                            {status === 'sending' ? (
-                                                <><Loader2 className="w-4 h-4 animate-spin" aria-hidden="true" /> Enviando...</>
-                                            ) : (
-                                                <><Send className="w-4 h-4" aria-hidden="true" /> Enviar Solicitud</>
-                                            )}
-                                        </button>
+                                        {/* Acciones de envío: WhatsApp (principal) y Correo (secundario) */}
+                                        <div className="pt-2 space-y-3">
+                                            <button
+                                                type="button"
+                                                disabled={status === 'sending'}
+                                                aria-disabled={status === 'sending'}
+                                                onClick={() => handleSend('whatsapp')}
+                                                className="w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-gradient-to-r from-emerald-600 via-teal-600 to-emerald-500 hover:from-emerald-700 hover:to-teal-700 text-white rounded-xl font-medium transition-all shadow-lg shadow-emerald-600/25 disabled:opacity-50 disabled:cursor-not-allowed focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2"
+                                            >
+                                                {status === 'sending' && sendingTarget === 'whatsapp' ? (
+                                                    <><Loader2 className="w-5 h-5 animate-spin" aria-hidden="true" /> Redirigiendo a WhatsApp...</>
+                                                ) : (
+                                                    <><MessageCircle className="w-5 h-5" aria-hidden="true" /> Enviar por WhatsApp (Recomendado)</>
+                                                )}
+                                            </button>
+
+                                            <button
+                                                type="button"
+                                                disabled={status === 'sending'}
+                                                aria-disabled={status === 'sending'}
+                                                onClick={() => handleSend('email')}
+                                                className="w-full inline-flex items-center justify-center gap-2 px-6 py-3 bg-zinc-100 hover:bg-zinc-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-zinc-800 dark:text-zinc-200 rounded-xl font-medium border border-zinc-200 dark:border-zinc-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
+                                            >
+                                                {status === 'sending' && sendingTarget === 'email' ? (
+                                                    <><Loader2 className="w-4 h-4 animate-spin" aria-hidden="true" /> Preparando correo...</>
+                                                ) : (
+                                                    <><Mail className="w-4 h-4 text-zinc-500 dark:text-zinc-400" aria-hidden="true" /> Enviar por Correo Electrónico</>
+                                                )}
+                                            </button>
+                                        </div>
 
                                         <p className="text-xs text-zinc-400 dark:text-zinc-500 text-center">
                                             Los campos marcados con <span className="text-red-500">*</span> son obligatorios.

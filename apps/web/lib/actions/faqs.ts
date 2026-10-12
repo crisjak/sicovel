@@ -10,28 +10,41 @@ export interface FaqItem {
     orden: number
 }
 
+import { getData } from '@/lib/data'
+
 /**
- * Obtiene las FAQs activas desde Supabase, ordenadas por su campo `orden`.
- * Retorna array vacío como fallback seguro si Supabase falla.
+ * Obtiene las FAQs activas.
+ * Modo 100% datos locales (mocks) por defecto.
  */
 export async function getFaqsActivas(): Promise<FaqItem[]> {
-    try {
-        const supabase = createPublicClient()
+    if (process.env.NEXT_PUBLIC_ENABLE_SUPABASE === 'true') {
+        try {
+            const supabase = createPublicClient()
 
-        const { data, error } = await supabase
-            .from('faqs')
-            .select('id, pregunta, respuesta, categoria, orden')
-            .eq('es_activo', true)
-            .order('orden', { ascending: true })
+            const { data, error } = await supabase
+                .from('faqs')
+                .select('id, pregunta, respuesta, categoria, orden')
+                .eq('es_activo', true)
+                .order('orden', { ascending: true })
 
-        if (error) {
-            console.error('Error fetching FAQs desde Supabase:', error.message)
-            return []
+            if (!error && data && data.length > 0) {
+                return data
+            }
+        } catch (e) {
+            console.warn('Error fetching FAQs desde Supabase, usando mocks locales:', e)
         }
+    }
 
-        return data ?? []
-    } catch (e) {
-        console.error('Error inesperado en getFaqsActivas:', e)
+    try {
+        const siteData = getData()
+        return siteData.faqsComerciales.items.map((item, i) => ({
+            id: item.id,
+            pregunta: item.pregunta,
+            respuesta: item.respuesta,
+            categoria: 'general',
+            orden: i + 1,
+        }))
+    } catch {
         return []
     }
 }

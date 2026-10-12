@@ -1,11 +1,23 @@
-import type { Metadata } from 'next'
+import type { Metadata, Viewport } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
 import { Providers } from './providers'
 import { ThemeToggle } from '@/components/layout/ThemeToggle'
 import { siteConfig } from '@/config/site'
 
-const inter = Inter({ subsets: ['latin'] })
+const inter = Inter({
+    subsets: ['latin'],
+    weight: ['400', '500', '600', '700', '800', '900'],
+    display: 'swap',
+    variable: '--font-inter',
+    preload: true,
+})
+
+export const viewport: Viewport = {
+    width: 'device-width',
+    initialScale: 1,
+    maximumScale: 5,
+}
 
 export const metadata: Metadata = {
     metadataBase: new URL(siteConfig.url),
@@ -46,10 +58,10 @@ export default function RootLayout({
     children: React.ReactNode
 }>): React.JSX.Element {
     return (
-        <html lang="es" suppressHydrationWarning>
-            <body className={`${inter.className} antialiased bg-white dark:bg-slate-950 min-h-screen relative overflow-x-hidden text-zinc-900 dark:text-zinc-100`}>
+        <html lang="es" suppressHydrationWarning className="w-full overflow-x-hidden">
+            <body className={`${inter.className} antialiased bg-white dark:bg-slate-950 min-h-screen relative w-full overflow-x-hidden text-zinc-900 dark:text-zinc-100`}>
                 {/* Global Continuous Background */}
-                <div className="fixed inset-0 -z-50 pointer-events-none bg-zinc-50/50 dark:bg-slate-950">
+                <div className="fixed inset-0 -z-50 pointer-events-none bg-zinc-50/50 dark:bg-slate-950 overflow-hidden">
                     <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-blue-500/10 dark:bg-blue-900/20 rounded-full blur-[100px] translate-x-1/3 -translate-y-1/4 opacity-50 dark:opacity-100" />
                     <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-cyan-500/10 dark:bg-cyan-900/20 rounded-full blur-[100px] -translate-x-1/3 translate-y-1/4 opacity-50 dark:opacity-100" />
                 </div>

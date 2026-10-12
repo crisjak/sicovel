@@ -46,7 +46,7 @@ export default async function HomePage(): Promise<React.JSX.Element> {
         title: config?.hero_titulo_home ?? 'Tecnología de Alto Rendimiento para tu Negocio',
         subtitle: '',
         description: config?.hero_subtitulo_home ?? 'Creamos landing pages, sitios web y e-commerce que impulsan tu crecimiento.',
-        backgroundImage: config?.hero_imagen_url ?? '/images/hero-bg.jpg',
+        backgroundImage: config?.hero_imagen_url ?? '',
         primaryButton: {
             text: config?.hero_cta_principal_texto ?? 'Hablar por WhatsApp',
             href: config?.hero_cta_principal_link ?? siteConfig.whatsapp.url,

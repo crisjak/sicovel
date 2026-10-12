@@ -32,24 +32,24 @@ export function ServiceBlock({ servicio }: ServiceBlockProps): React.JSX.Element
                     <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-gradient-to-br from-blue-500 to-cyan-500 text-white mb-5 shadow-lg shadow-blue-500/20">
                         <Icon className="w-7 h-7" />
                     </div>
-                    <h2 className="text-3xl sm:text-4xl font-bold text-zinc-900 dark:text-white">
+                    <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-zinc-900 dark:text-white">
                         {servicio.nombre}
                     </h2>
-                    <p className="mt-3 text-lg text-zinc-600 dark:text-zinc-400 max-w-2xl mx-auto leading-relaxed">
+                    <p className="mt-3 text-base sm:text-lg text-zinc-600 dark:text-zinc-400 max-w-2xl mx-auto leading-relaxed">
                         {servicio.descripcion_completa}
                     </p>
                 </div>
 
                 {/* Card única ancha */}
                 <div className="max-w-3xl mx-auto bg-white dark:bg-slate-800/50 rounded-2xl border border-zinc-200 dark:border-zinc-800 overflow-hidden hover:shadow-xl hover:shadow-blue-500/5 transition-all">
-                    <div className="p-8 sm:p-10">
+                    <div className="p-5 sm:p-8 md:p-10">
                         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6 mb-8">
                             <div>
                                 <p className="text-sm font-semibold text-blue-600 dark:text-cyan-400 uppercase tracking-wide mb-1">
                                     {servicio.modalidad === 'pago_unico' ? 'Pago único' : 'Por plan'}
                                 </p>
                                 <div className="flex items-baseline gap-2">
-                                    <span className="text-4xl sm:text-5xl font-extrabold text-zinc-900 dark:text-white tracking-tight">
+                                    <span className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-zinc-900 dark:text-white tracking-tight break-words">
                                         {servicio.precio_base_clp
                                             ? formatPrecioCLP(servicio.precio_base_clp)
                                             : servicio.precio_texto}
@@ -58,7 +58,7 @@ export function ServiceBlock({ servicio }: ServiceBlockProps): React.JSX.Element
                             </div>
                             <Link
                                 href={servicio.cta_href}
-                                className="inline-flex items-center justify-center gap-2 px-7 py-3.5 text-base font-semibold text-white bg-gradient-to-r from-blue-600 to-cyan-500 rounded-xl hover:from-blue-700 hover:to-cyan-600 transition-all shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40 hover:-translate-y-0.5 whitespace-nowrap"
+                                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 text-base font-semibold text-white bg-gradient-to-r from-blue-600 to-cyan-500 rounded-xl hover:from-blue-700 hover:to-cyan-600 transition-all shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40 hover:-translate-y-0.5 w-full sm:w-auto text-center"
                             >
                                 {servicio.cta_texto}
                                 <ArrowRight className="w-5 h-5" />
@@ -136,10 +136,10 @@ export function ServiceBlock({ servicio }: ServiceBlockProps): React.JSX.Element
                 <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-gradient-to-br from-blue-500 to-cyan-500 text-white mb-5 shadow-lg shadow-blue-500/20">
                     <Icon className="w-7 h-7" />
                 </div>
-                <h2 className="text-3xl sm:text-4xl font-bold text-zinc-900 dark:text-white">
+                <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-zinc-900 dark:text-white">
                     {servicio.nombre}
                 </h2>
-                <p className="mt-3 text-lg text-zinc-600 dark:text-zinc-400 max-w-2xl mx-auto leading-relaxed">
+                <p className="mt-3 text-base sm:text-lg text-zinc-600 dark:text-zinc-400 max-w-2xl mx-auto leading-relaxed">
                     {servicio.descripcion_completa}
                 </p>
             </div>

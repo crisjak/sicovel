@@ -83,7 +83,8 @@ export function mapCategoriaDbToUI(categoriaDb: CategoriaDB, planesDb: PlanDB[] 
         es_destacado: configUI.es_destacado,
         orden: configUI.orden,
         visible: true,
-        // Campo extendido para el carrusel (imagen subida via admin)
-        imagen_url: categoriaDb.imagen_url ?? null,
+        // Campo extendido para el carrusel (con fallback garantizado a mockups)
+        imagen_url: categoriaDb.imagen_url || (categoriaDb.slug === 'landing' ? '/images/carrusel/landing_mockup.png' : categoriaDb.slug === 'sitio_informativo' ? '/images/carrusel/informativa_mockup.png' : '/images/carrusel/ecomerce_mockup.png'),
+        imageUrl: categoriaDb.imagen_url || (categoriaDb.slug === 'landing' ? '/images/carrusel/landing_mockup.png' : categoriaDb.slug === 'sitio_informativo' ? '/images/carrusel/informativa_mockup.png' : '/images/carrusel/ecomerce_mockup.png'),
     }
 }

@@ -26,8 +26,8 @@ export function Footer({ data }: FooterProps): React.JSX.Element {
                             className="flex justify-center md:justify-start items-center group mb-4 select-none"
                         >
                             <BrandLogo 
-                                className="w-[200px] sm:w-[260px] md:w-[320px] lg:w-[360px] h-16 md:h-20 translate-y-1.5 md:translate-y-2"
-                                imageClassName="scale-[1.75] md:scale-[2.1] lg:scale-[2.25]"
+                                className="w-[140px] min-[380px]:w-[180px] sm:w-[240px] md:w-[300px] lg:w-[340px] h-12 min-[380px]:h-14 sm:h-16 md:h-20 translate-y-1 md:translate-y-2 max-w-[70vw] sm:max-w-none"
+                                imageClassName="scale-[1.3] min-[380px]:scale-[1.5] sm:scale-[1.8] md:scale-[2.1] lg:scale-[2.25]"
                             />
                         </Link>
                         <p className="mt-4 text-sm text-zinc-600 dark:text-zinc-400 max-w-sm mx-auto md:mx-0">

@@ -70,7 +70,7 @@ export default function PoliticaPrivacidadPage(): React.JSX.Element {
 
                         <h2 className="text-xl font-semibold text-zinc-900 dark:text-white mt-8">7. Derechos del usuario</h2>
                         <p>
-                            Puedes solicitar el acceso, la corrección de tus datos en caso de errores, o la eliminación completa de tu información de nuestros registros. Para ejercer estos derechos, escríbenos directamente a <strong><a href="mailto:contacto.sicovel@gmail.com" className="text-blue-600 dark:text-blue-400 hover:underline">contacto.sicovel@gmail.com</a></strong>.
+                            Puedes solicitar el acceso, la corrección de tus datos en caso de errores, o la eliminación completa de tu información de nuestros registros. Para ejercer estos derechos, escríbenos directamente a <strong><a href="mailto:sotomellacristobal@gmail.com" className="text-blue-600 dark:text-blue-400 hover:underline">sotomellacristobal@gmail.com</a></strong>.
                         </p>
 
                         <h2 className="text-xl font-semibold text-zinc-900 dark:text-white mt-8">8. Actualizaciones</h2>

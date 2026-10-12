@@ -13,24 +13,24 @@ export const siteConfig = {
 
     // ── Contacto centralizado ────────────────────────────────────────
     contacto: {
-        email: 'contacto.sicovel@gmail.com',
-        telefono: '+56 9 3516 2784',
+        email: 'sotomellacristobal@gmail.com',
+        telefono: '+56 9 2047 7927',
         ubicacion: 'Santiago, Chile',
         horario: 'Lun - Vie: 9:00 - 18:00',
     },
 
     // ── WhatsApp ─────────────────────────────────────────────────────
     whatsapp: {
-        /** Número en formato internacional sin + (ej: 56912345678) */
-        numero: '56935162784',
-        /** URL directa wa.me */
-        url: 'https://wa.me/56935162784',
+        /** Número en formato internacional sin + (ej: 56920477927) */
+        numero: '56920477927',
+        /** URL directa wa.me con mensaje prellenado */
+        url: 'https://wa.me/56920477927?text=Hola%20SICOVEL,%20quiero%20cotizar%20un%20proyecto',
         /** Mensaje prellenado para el botón flotante */
-        mensajeFlotante: 'Hola, quiero cotizar un proyecto web con SICOVEL. Me interesa recibir orientación sobre el plan más adecuado.',
+        mensajeFlotante: 'Hola SICOVEL, quiero cotizar un proyecto',
         /** Tooltip del botón flotante */
-        tooltip: 'Hablar por WhatsApp',
+        tooltip: 'Cotizar por WhatsApp',
         /** Si es true, se muestra el botón flotante en el sitio público */
-        flotanteActivo: false,
+        flotanteActivo: true,
     },
 
     // ── SEO ──────────────────────────────────────────────────────────

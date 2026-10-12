@@ -20,10 +20,10 @@ export function FaqsSection({ faqs }: FaqsSectionProps): React.JSX.Element | nul
                                 Preguntas Frecuentes
                             </span>
                         </div>
-                        <h2 className="text-3xl sm:text-4xl font-bold text-zinc-900 dark:text-white">
+                        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-zinc-900 dark:text-white">
                             ¿Tienes dudas?
                         </h2>
-                        <p className="mt-4 text-zinc-600 dark:text-zinc-400 text-lg">
+                        <p className="mt-4 text-zinc-600 dark:text-zinc-400 text-base sm:text-lg">
                             Resolvemos las preguntas más comunes sobre nuestros servicios.
                         </p>
                     </div>
@@ -33,10 +33,10 @@ export function FaqsSection({ faqs }: FaqsSectionProps): React.JSX.Element | nul
                         {faqs.map((faq) => (
                             <details
                                 key={faq.id}
-                                className="group bg-white dark:bg-zinc-900/50 p-6 cursor-pointer"
+                                className="group bg-white dark:bg-zinc-900/50 p-4 sm:p-6 cursor-pointer"
                             >
                                 <summary className="flex items-center justify-between gap-4 list-none font-semibold text-zinc-900 dark:text-white select-none">
-                                    <span>{faq.pregunta}</span>
+                                    <span className="pr-2 text-sm sm:text-base leading-snug">{faq.pregunta}</span>
                                     <ChevronDown className="w-5 h-5 text-zinc-400 flex-shrink-0 group-open:rotate-180 transition-transform duration-300" />
                                 </summary>
                                 <p className="mt-4 text-zinc-600 dark:text-zinc-400 leading-relaxed text-sm">

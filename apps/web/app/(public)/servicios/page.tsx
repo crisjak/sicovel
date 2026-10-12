@@ -38,10 +38,10 @@ export default async function ServiciosPage(): Promise<React.JSX.Element> {
 
                 <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 text-center">
                     <SectionEyebrow text="Soluciones Digitales" />
-                    <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight max-w-4xl mx-auto drop-shadow-sm">
+                    <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight max-w-4xl mx-auto drop-shadow-sm">
                         <SectionTitle text="Nuestros Servicios" />
                     </h1>
-                    <p className="mt-6 text-lg sm:text-xl text-zinc-600 dark:text-zinc-400 max-w-2xl mx-auto leading-relaxed">
+                    <p className="mt-4 sm:mt-6 text-base sm:text-xl text-zinc-600 dark:text-zinc-400 max-w-2xl mx-auto leading-relaxed">
                         Soluciones tecnológicas de alto rendimiento diseñadas para cada etapa de tu negocio. Desde una landing page hasta una tienda online completa.
                     </p>
                 </div>
@@ -50,7 +50,7 @@ export default async function ServiciosPage(): Promise<React.JSX.Element> {
             {/* Grid de Servicios */}
             <section className="pb-16 lg:pb-24 relative px-4">
                 <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
                         {serviciosVisibles.map((servicio) => {
                             const Icon = getIcon(servicio.icono)
                             const tieneMultiplesPlanes = servicio.planes.length > 0
@@ -73,7 +73,7 @@ export default async function ServiciosPage(): Promise<React.JSX.Element> {
                                         </div>
                                     )}
 
-                                    <div className="relative z-10 p-8">
+                                    <div className="relative z-10 p-5 sm:p-8">
                                         <div className="inline-flex items-center justify-center w-14 h-14 rounded-xl bg-gradient-to-br from-blue-500 to-cyan-500 text-white mb-6 shadow-lg shadow-blue-500/20">
                                             <Icon className="w-7 h-7" />
                                         </div>
@@ -153,20 +153,20 @@ export default async function ServiciosPage(): Promise<React.JSX.Element> {
             {/* CTA Final */}
             <section className="py-16 lg:py-24 px-4">
                 <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="relative max-w-3xl mx-auto text-center p-8 lg:p-12 rounded-3xl border border-zinc-200 dark:border-zinc-800 bg-white/50 dark:bg-slate-900/50 backdrop-blur-xl">
+                    <div className="relative max-w-3xl mx-auto text-center p-6 sm:p-8 lg:p-12 rounded-3xl border border-zinc-200 dark:border-zinc-800 bg-white/50 dark:bg-slate-900/50 backdrop-blur-xl">
                         <div className="absolute top-0 right-0 w-40 h-40 bg-white/10 rounded-full blur-2xl" />
                         <div className="absolute bottom-0 left-0 w-60 h-60 bg-white/5 rounded-full blur-3xl" />
 
                         <div className="relative z-10">
-                            <h2 className="text-3xl sm:text-4xl font-bold text-zinc-900 dark:text-white mb-4">
+                            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-zinc-900 dark:text-white mb-4">
                                 ¿No estás seguro qué servicio necesitas?
                             </h2>
-                            <p className="text-zinc-600 dark:text-zinc-400 text-lg mb-8 max-w-xl mx-auto">
+                            <p className="text-zinc-600 dark:text-zinc-400 text-base sm:text-lg mb-8 max-w-xl mx-auto">
                                 Hablemos de tu negocio y te recomendaremos la solución tecnológica que mejor se adapte a tus objetivos comerciales.
                             </p>
                             <Link
                                 href="/contacto"
-                                className="inline-flex items-center gap-2 px-8 py-4 bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 rounded-xl font-medium hover:scale-105 transition-transform"
+                                className="inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3.5 sm:py-4 bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 rounded-xl font-medium hover:scale-105 transition-transform w-full sm:w-auto"
                             >
                                 Conversemos sobre tu proyecto
                             </Link>

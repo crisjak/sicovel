@@ -21,7 +21,7 @@ export function PricingCard({ plan, accentClass = 'from-blue-600 to-cyan-500', h
         <div
             className={`relative flex flex-col bg-white dark:bg-slate-800/50 rounded-2xl border overflow-hidden transition-all duration-300 hover:shadow-xl ${
                 plan.es_recomendado
-                    ? 'border-blue-400 dark:border-cyan-500 shadow-lg shadow-blue-500/10 ring-1 ring-blue-400/30 dark:ring-cyan-500/20 scale-[1.02] lg:scale-105'
+                    ? 'border-blue-400 dark:border-cyan-500 shadow-lg shadow-blue-500/10 ring-1 ring-blue-400/30 dark:ring-cyan-500/20 lg:scale-105'
                     : 'border-zinc-200 dark:border-zinc-800 hover:border-blue-300 dark:hover:border-blue-700'
             }`}
         >
@@ -33,7 +33,7 @@ export function PricingCard({ plan, accentClass = 'from-blue-600 to-cyan-500', h
                 </div>
             )}
 
-            <div className={`p-7 sm:p-8 flex flex-col flex-1 ${plan.es_recomendado ? '' : 'pt-8'}`}>
+            <div className={`p-5 sm:p-7 md:p-8 flex flex-col flex-1 ${plan.es_recomendado ? '' : 'pt-6 sm:pt-8'}`}>
                 {/* Nombre del Plan */}
                 <h3 className="text-xl font-bold text-zinc-900 dark:text-white">
                     {plan.nombre}
@@ -67,12 +67,12 @@ export function PricingCard({ plan, accentClass = 'from-blue-600 to-cyan-500', h
                             </div>
                             
                             {/* Precio oferta destacado */}
-                            <span className="text-4xl font-extrabold text-blue-600 dark:text-cyan-400 tracking-tight">
+                            <span className="text-3xl sm:text-4xl font-extrabold text-blue-600 dark:text-cyan-400 tracking-tight break-words">
                                 {formatCLP(display.precio)}
                             </span>
                         </div>
                     ) : (
-                        <span className="text-4xl font-extrabold text-zinc-900 dark:text-white tracking-tight block">
+                        <span className="text-3xl sm:text-4xl font-extrabold text-zinc-900 dark:text-white tracking-tight block break-words">
                             {formatCLP(display.precio)}
                         </span>
                     )}

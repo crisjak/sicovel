@@ -14,6 +14,7 @@ export function BrandLogo({ className = '', imageClassName = '' }: BrandLogoProp
                 alt="SICOVEL"
                 fill
                 priority={true}
+                sizes="(max-width: 380px) 140px, (max-width: 640px) 180px, (max-width: 768px) 240px, (max-width: 1024px) 300px, 360px"
                 className={`object-contain object-left origin-left ${imageClassName}`}
             />
         </div>

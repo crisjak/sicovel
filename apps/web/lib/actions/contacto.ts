@@ -12,16 +12,16 @@ const SLUGS_VALIDOS = [
 ] as const
 
 // ── Helper: limpiar y normalizar un número de WhatsApp chileno ────────────────
-// Acepta: +56935162784 / 56935162784 / 935162784 / +56 9 3516 2784 / con guiones
-// Salida: +56935162784
+// Acepta: +56920477927 / 56920477927 / 920477927 / +56 9 2047 7927 / con guiones
+// Salida: +56920477927
 function normalizarWhatsapp(raw: string): string {
     // Eliminar todo excepto dígitos y el signo +
     const clean = raw.replace(/[\s\-().]/g, '')
     // Si quedó con + al inicio, lo quitamos para trabajar solo con dígitos
     const digits = clean.replace(/^\+/, '')
 
-    if (digits.startsWith('56')) return `+${digits}`       // 56935162784 → +56935162784
-    if (digits.startsWith('9') && digits.length === 9) return `+56${digits}` // 935162784 → +56935162784
+    if (digits.startsWith('56')) return `+${digits}`       // 56920477927 → +56920477927
+    if (digits.startsWith('9') && digits.length === 9) return `+56${digits}` // 920477927 → +56920477927
     // Si ya llegó con + y era +56..., está bien
     return clean.startsWith('+') ? clean : `+${digits}`
 }
@@ -46,10 +46,10 @@ const contactoSchema = z.object({
             return val.replace(/[\s\-().]/g, '')
         },
         z
-            .string({ error: 'Ingresa un número válido de Chile (ej: +56 9 1234 5678).' })
+            .string({ error: 'Ingresa un número válido de Chile (ej: +56 9 2047 7927).' })
             .regex(
                 /^(\+?56)?9\d{8}$/,
-                'Ingresa un número válido de Chile (ej: +56 9 1234 5678).'
+                'Ingresa un número válido de Chile (ej: +56 9 2047 7927).'
             )
     ),
 
@@ -83,11 +83,15 @@ const contactoSchema = z.object({
 
 type ContactoFormData = z.infer<typeof contactoSchema>
 
+import { siteConfig } from '@/config/site'
+
 // ── Tipo de retorno explícito para el cliente ─────────────────────────────────
 export type SubmitResult = {
     status: 'success' | 'error'
     message: string
     errors?: Partial<Record<keyof ContactoFormData, string[]>>
+    whatsappUrl?: string
+    mailtoUrl?: string
 }
 
 export async function submitContactLead(formData: FormData): Promise<SubmitResult> {
@@ -121,44 +125,90 @@ export async function submitContactLead(formData: FormData): Promise<SubmitResul
         }
 
         const data = validatedData.data
-        // Normalizar el número antes de guardar
         const telefonoNormalizado = normalizarWhatsapp(data.telefono)
+        const servicioNombre = SERVICIOS_COMERCIALES.find((s) => s.slug === data.servicio_interes)?.nombre || (data.servicio_interes === 'otro' ? 'Otro / No estoy seguro' : data.servicio_interes)
 
-        const supabase = createPublicClient()
+        // Armar URL de WhatsApp prellenado
+        const waLines = [
+            '¡Hola SICOVEL! Quiero cotizar un proyecto web:',
+            '',
+            `👤 *Nombre:* ${data.nombre}`,
+            `📧 *Email:* ${data.email}`,
+            `📱 *Teléfono:* ${telefonoNormalizado}`,
+            data.nombre_negocio ? `🏢 *Negocio:* ${data.nombre_negocio}` : null,
+            data.rubro ? `💼 *Rubro:* ${data.rubro}` : null,
+            `🚀 *Proyecto:* ${servicioNombre}`,
+            '',
+            '💬 *Mensaje:*',
+            data.mensaje,
+        ].filter(Boolean)
 
-        const { error } = await supabase.from('consultas_contacto').insert({
-            nombre:         data.nombre,
-            email:          data.email,
-            telefono:       telefonoNormalizado,
-            nombre_negocio: data.nombre_negocio ?? null,
-            rubro:          data.rubro ?? null,
-            tipo_documento: data.tipo_documento ?? null,
-            mensaje:        data.mensaje,
-            origen:         'formulario_web_sicovel',
-            datos_extra: {
-                servicio: data.servicio_interes,
-                plan:     data.plan_identificador,
-            },
-        })
+        const waText = encodeURIComponent(waLines.join('\n'))
+        const whatsappUrl = `https://wa.me/${siteConfig.whatsapp.numero}?text=${waText}`
 
-        if (error) {
-            console.error('Error al guardar lead en Supabase', error)
-            return {
-                status: 'error',
-                message: 'Ocurrió un error al enviar tu solicitud. Por favor, escríbenos directamente por WhatsApp.',
+        // Armar URL mailto
+        const emailSubject = encodeURIComponent(`Cotización Proyecto Web - ${data.nombre} (${servicioNombre})`)
+        const emailBody = encodeURIComponent([
+            'Hola equipo SICOVEL,',
+            '',
+            'Quiero solicitar una cotización con los siguientes detalles:',
+            '',
+            `Nombre: ${data.nombre}`,
+            `Email: ${data.email}`,
+            `Teléfono: ${telefonoNormalizado}`,
+            data.nombre_negocio ? `Negocio / Empresa: ${data.nombre_negocio}` : null,
+            data.rubro ? `Rubro: ${data.rubro}` : null,
+            `Tipo de proyecto: ${servicioNombre}`,
+            '',
+            'Mensaje:',
+            data.mensaje,
+            '',
+            'Enviado desde el formulario web de SICOVEL.',
+        ].filter(Boolean).join('\n'))
+        const mailtoUrl = `mailto:${siteConfig.contacto.email}?subject=${emailSubject}&body=${emailBody}`
+
+        // Si Supabase está habilitado explícitamente, intentar guardar en BD
+        if (process.env.NEXT_PUBLIC_ENABLE_SUPABASE === 'true') {
+            try {
+                const supabase = createPublicClient()
+                await supabase.from('consultas_contacto').insert({
+                    nombre:         data.nombre,
+                    email:          data.email,
+                    telefono:       telefonoNormalizado,
+                    nombre_negocio: data.nombre_negocio ?? null,
+                    rubro:          data.rubro ?? null,
+                    tipo_documento: data.tipo_documento ?? null,
+                    mensaje:        data.mensaje,
+                    origen:         'formulario_web_sicovel',
+                    datos_extra: {
+                        servicio: data.servicio_interes,
+                        plan:     data.plan_identificador,
+                    },
+                })
+            } catch (err) {
+                console.warn('[submitContactLead] Supabase no disponible, continuando en modo local:', err)
             }
+        } else {
+            console.info('[submitContactLead] Lead procesado en modo local (sin Supabase):', {
+                nombre: data.nombre,
+                email: data.email,
+                telefono: telefonoNormalizado,
+                servicio: servicioNombre,
+            })
         }
 
         return {
             status: 'success',
-            message: '¡Gracias por contactarnos! Te responderemos en menos de 24 horas con una propuesta.',
+            message: '¡Gracias por contactarnos! Tu consulta ha sido preparada correctamente.',
+            whatsappUrl,
+            mailtoUrl,
         }
 
     } catch (e) {
         console.error('Error inesperado en submitContactLead', e)
         return {
             status: 'error',
-            message: 'Ocurrió un error al enviar tu solicitud. Por favor, escríbenos directamente por WhatsApp.',
+            message: 'Ocurrió un error al procesar tu solicitud. Por favor, contáctanos directamente por WhatsApp.',
         }
     }
 }

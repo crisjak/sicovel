@@ -8,6 +8,11 @@ import type { ServicioComercial } from '@/types/services'
  * Si falla o no hay conexión, hace un render seguro utilizando los mocks en memoria (`services-data.ts`).
  */
 export async function getServiciosComerciales(): Promise<ServicioComercial[]> {
+    // Modo 100% datos locales (mocks) por defecto
+    if (process.env.NEXT_PUBLIC_ENABLE_SUPABASE !== 'true') {
+        return SERVICIOS_COMERCIALES
+    }
+
     try {
         const supabase = createPublicClient()
         

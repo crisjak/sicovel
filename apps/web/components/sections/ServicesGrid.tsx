@@ -19,14 +19,14 @@ export function ServicesGrid({ services }: ServicesGridProps): React.JSX.Element
         <section id="servicios" className="py-12 lg:py-20 relative">
             <div className="container mx-auto px-4 sm:px-6 lg:px-8">
                 {/* Section Header */}
-                <div className="text-center max-w-2xl mx-auto mb-16">
-                    <h2 className="text-3xl sm:text-4xl font-bold text-zinc-900 dark:text-white">
+                <div className="text-center max-w-2xl mx-auto mb-12 sm:mb-16">
+                    <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-zinc-900 dark:text-white">
                         Nuestros{' '}
                         <span className="bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent">
                             Servicios
                         </span>
                     </h2>
-                    <p className="mt-4 text-lg text-zinc-600 dark:text-zinc-400">
+                    <p className="mt-4 text-base sm:text-lg text-zinc-600 dark:text-zinc-400">
                         Soluciones tecnológicas de alto rendimiento para cada etapa de tu negocio.
                     </p>
                 </div>
@@ -41,7 +41,7 @@ export function ServicesGrid({ services }: ServicesGridProps): React.JSX.Element
                             <Link
                                 key={service.id}
                                 href={service.href}
-                                className={`group relative p-6 lg:p-8 rounded-2xl bg-white dark:bg-slate-800/50 border border-zinc-200 dark:border-zinc-800 hover:border-blue-300 dark:hover:border-blue-700 transition-all hover:shadow-xl hover:shadow-blue-500/10 ${isLarge ? 'md:col-span-1' : ''
+                                className={`group relative p-5 sm:p-6 lg:p-8 rounded-2xl bg-white dark:bg-slate-800/50 border border-zinc-200 dark:border-zinc-800 hover:border-blue-300 dark:hover:border-blue-700 transition-all hover:shadow-xl hover:shadow-blue-500/10 ${isLarge ? 'md:col-span-1' : ''
                                     }`}
                             >
                                 {/* Gradient Overlay on Hover */}
